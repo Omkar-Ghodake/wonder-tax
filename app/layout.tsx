@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`bg-background`}>
-        <div className='h-[15vh] w-full bg-white'>
+        <div className='h-[15vh] w-full bg-white sticky top-0 left-0 z-40'>
           <Navbar />
         </div>
 
