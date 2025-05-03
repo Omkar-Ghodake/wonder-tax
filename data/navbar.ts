@@ -1,6 +1,6 @@
 import { NavLinkType } from '@/types/dataTypes'
 
-export const PRIMARY_NAVLINKS: NavLinkType[] = [
+export const PRIMARY_NAV_LINKS: NavLinkType[] = [
   {
     label: 'Services',
     href: '/services',

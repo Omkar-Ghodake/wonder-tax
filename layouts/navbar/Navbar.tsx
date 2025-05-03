@@ -1,20 +1,20 @@
 import Image from 'next/image'
-import React from 'react'
-import PrimaryNavList from './PrimaryNavList'
 import Link from 'next/link'
 import NavbarOptions from './NavbarOptions'
+import PrimaryNavList from './PrimaryNavList'
 
 const Navbar = () => {
   return (
-    <nav className=' w-full h-full px-28 py-5'>
-      <div className='w-full h-full flex'>
-        <div className='w-3/12 h-full flex items-center'>
+    <nav className='hidden md:block w-full h-full md:px-28 md:py-5 p-5'>
+      <div className='w-full h-full flex items-center'>
+        <div className='md:w-3/12 h-full flex items-center'>
           <Link href={'/'} className='w-fit h-full flex items-center'>
             <Image
               src={'/navbar-brand.png'}
               alt='WonderTax'
               width={230}
               height={50}
+              className=''
             />
           </Link>
         </div>

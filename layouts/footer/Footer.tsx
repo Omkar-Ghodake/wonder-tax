@@ -4,7 +4,7 @@ import { LuMoveRight } from 'react-icons/lu'
 
 const Footer = () => {
   return (
-    <div className='flex flex-col justify-center space-y-5 py-10'>
+    <div className='hidden md:flex flex-col justify-center space-y-5 py-10'>
       <div className='w-[95%] mx-auto flex justify-between'>
         <div className='w-1/3 space-y-5'>
           <p className='text-[24px] leading-[40px]'>

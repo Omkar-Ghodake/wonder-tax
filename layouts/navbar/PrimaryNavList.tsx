@@ -1,11 +1,11 @@
 import React from 'react'
 import NavList from './NavList'
-import { PRIMARY_NAVLINKS } from '@/data/navbar'
+import { PRIMARY_NAV_LINKS } from '@/data/navbar'
 
 const PrimaryNavList = () => {
   return (
     <div className='flex items-center h-full'>
-      <NavList list={PRIMARY_NAVLINKS} />
+      <NavList list={PRIMARY_NAV_LINKS} />
     </div>
   )
 }
