@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation'
 import React, { useState } from 'react'
 import { FaCheckCircle } from 'react-icons/fa'
 import SelectOption from './SelectOption'
+import AssistantHeader from './AssistantHeader'
 
 const AGE_OPTIONS: string[] = [
   'Below 60 years',
@@ -27,22 +28,12 @@ const Step1 = () => {
 
   return (
     <div className='space-y-5'>
-      <div className='flex items-center space-x-5'>
-        <Image src={'/mobile/user_male.png'} alt='' height={80} width={80} />
-        <Image src={'/mobile/user_female.png'} alt='' height={80} width={80} />
-      </div>
-
-      <div className='text-sm'>
-        <p>
-          <strong>Hi! We are AI tax experts Rajiv and Priya.</strong> <br /> We
-          will collect information from you to help calculate your taxes.
-        </p>
-        <br />
-        <p>
-          Based on you responses we will share complete tax computations under
-          the Existing Regime and the New Regime on the last step
-        </p>
-      </div>
+      <AssistantHeader
+        intro='Hi! We are AI tax experts Rajiv and Priya.'
+        about='We will collect information from you to help calculate your taxes.'
+        description='Based on you responses we will share complete tax computations under
+          the Existing Regime and the New Regime on the last step'
+      />
 
       <div className='w-full flex flex-col items-center space-y-5'>
         <span className='text-center font-bold'>What is your age?</span>

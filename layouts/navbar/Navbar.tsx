@@ -5,7 +5,7 @@ import PrimaryNavList from './PrimaryNavList'
 
 const Navbar = () => {
   return (
-    <nav className='hidden md:block w-full h-full md:px-28 md:py-5 p-5'>
+    <nav className='hidden md:block w-full h-full md:px-28 md:py-5 p-5 bg-white'>
       <div className='w-full h-full flex items-center'>
         <div className='md:w-3/12 h-full flex items-center'>
           <Link href={'/'} className='w-fit h-full flex items-center'>

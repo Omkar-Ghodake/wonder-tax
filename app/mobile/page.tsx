@@ -36,9 +36,11 @@ const page = () => {
       </div>
 
       <div className='flex flex-col items-center space-y-2 pt-2'>
-        <button className='font-semibold text-lg bg-primary text-white w-full py-4 rounded-lg'>
-          <Link href={'/mobile/userInfo/step1'}>Get started now</Link>
-        </button>
+        <Link href={'/mobile/userInfo/step1'} className='w-full'>
+          <button className='font-semibold text-lg bg-primary text-white w-full py-4 rounded-lg'>
+            Get started now
+          </button>
+        </Link>
 
         <span className='text-sm text-[#5C5D67]'>
           Trusted by lakhs of Indians every year

@@ -1,8 +1,7 @@
-import React, { HTMLInputTypeAttribute } from 'react'
-import StepTopBar from './StepTopBar'
-import StepHeader from './StepHeader'
-import StepInput from './StepInput'
 import { redirect } from 'next/navigation'
+import { HTMLInputTypeAttribute } from 'react'
+import AssistantHeaderSm from './AssistantHeaderSm'
+import StepInput from './StepInput'
 
 const INPUTS: {
   title: string
@@ -49,9 +48,7 @@ const Step3 = () => {
 
   return (
     <div className='flex flex-col space-y-5'>
-      <StepTopBar step={3} />
-
-      <StepHeader
+      <AssistantHeaderSm
         title="Let's get more info on your salary"
         description='Select all the income sources you have. This will help us decide which ITR will be most suitable for you.'
       />

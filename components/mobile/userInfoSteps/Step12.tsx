@@ -1,7 +1,6 @@
 import ChosenPlan from '../home/ChosenPlan'
 import Computations from '../home/Computations'
-import StepHeader from './StepHeader'
-import StepTopBar from './StepTopBar'
+import AssistantHeaderSm from './AssistantHeaderSm'
 
 const COMPUTATION_DATA: {
   title: string
@@ -82,9 +81,7 @@ const COMPUTATION_DATA: {
 const Step12 = () => {
   return (
     <div className='flex flex-col space-y-5'>
-      <StepTopBar step={12} />
-
-      <StepHeader
+      <AssistantHeaderSm
         title='Thanks for all the details 👋. Your computations are ready'
         description='We have made calculations for you and also chosen the best plan for your needs.'
       />

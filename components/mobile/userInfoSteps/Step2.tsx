@@ -1,12 +1,10 @@
 'use client'
 
-import Image from 'next/image'
-import React, { useState } from 'react'
-import SelectOption from './SelectOption'
 import { useMobileHomeStepsProvider } from '@/context/MobileHomeStepsProvider'
 import { redirect } from 'next/navigation'
-import StepTopBar from './StepTopBar'
-import StepHeader from './StepHeader'
+import { useState } from 'react'
+import AssistantHeaderSm from './AssistantHeaderSm'
+import SelectOption from './SelectOption'
 
 const INCOME_SRC_OPTIONS: string[] = [
   'Salary or Pension',
@@ -34,9 +32,7 @@ const Step2 = () => {
 
   return (
     <div className='flex flex-col space-y-5'>
-      <StepTopBar step={2} />
-
-      <StepHeader
+      <AssistantHeaderSm
         title='What are your income sources?'
         description='Select all the income sources you have. This will help us decide which ITR will be most suitable for you.'
       />
