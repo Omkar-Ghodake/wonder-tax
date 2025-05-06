@@ -6,12 +6,12 @@ import { redirect } from 'next/navigation'
 import React, { useState } from 'react'
 
 const Login = () => {
-  const [selectedOption, setSelectedOption] = useState<number | null>(null)
+  const [selectedOption, setSelectedOption] = useState<number[]>([])
 
   const handleContinue = () => {
     if (selectedOption === null) return
 
-    if (selectedOption === 0) redirect('/mobile/login/create-user')
+    if (selectedOption[0] === 0) redirect('/mobile/login/create-user')
 
     redirect('/mobile/login/user-login')
   }
@@ -31,14 +31,10 @@ const Login = () => {
 
         <div className='w-full flex flex-col items-center space-y-4'>
           <div className='w-full space-y-4'>
-            {['New User', 'Existing User'].map((str, idx) => (
-              <SelectOption
-                key={str}
-                label={str}
-                onClick={() => setSelectedOption(idx)}
-                selected={selectedOption === idx}
-              />
-            ))}
+            <SelectOption
+              options={['New User', 'Existing User']}
+              setOptions={setSelectedOption}
+            />
           </div>
 
           <button
