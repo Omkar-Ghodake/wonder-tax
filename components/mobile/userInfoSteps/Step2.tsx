@@ -7,26 +7,23 @@ import AssistantHeaderSm from './AssistantHeaderSm'
 import SelectOption from './SelectOption'
 
 const INCOME_SRC_OPTIONS: string[] = [
-  'Salary or Pension',
+  'Salary or Pension income',
   'Business or professional income',
-  'Proprietorship business income',
-  'Rental income from house',
-  'Income from capital gains (Stocks, FnO)',
-  'Other sources (Lottery/ Horse Races)',
+  'Income from house property (Rent / Housing loan)',
+  'Income from capital gain (Stocks, FnO)',
+  'Income from other sources (Bank interest / Dividend)',
+  'Foreign Income',
 ]
 
 const Step2 = () => {
-  const [selectedIncomeSrc, setSelectedIncomeSrc] = useState<number | null>(
-    null
-  )
+  const [selectedIncomeSrc, setSelectedIncomeSrc] = useState<string[]>([])
 
   const { userData, setUserData } = useMobileHomeStepsProvider()
 
   const handleContinue = () => {
-    if (selectedIncomeSrc === null) return
+    if (selectedIncomeSrc.length < 1) return
 
-    setUserData({ ...userData, age: INCOME_SRC_OPTIONS[selectedIncomeSrc] })
-    console.log('userData:', userData)
+    setUserData({ ...userData, incomeSrc: selectedIncomeSrc })
     redirect('/mobile/userInfo/step3')
   }
 
@@ -39,14 +36,11 @@ const Step2 = () => {
 
       <div className='w-full flex flex-col items-center space-y-5'>
         <div className='w-full space-y-4'>
-          {INCOME_SRC_OPTIONS.map((item, idx) => (
-            <SelectOption
-              key={item}
-              label={item}
-              selected={selectedIncomeSrc === idx}
-              onClick={() => setSelectedIncomeSrc(idx)}
-            />
-          ))}
+          <SelectOption
+            options={INCOME_SRC_OPTIONS}
+            setOptions={setSelectedIncomeSrc}
+            multiple
+          />
         </div>
 
         <button

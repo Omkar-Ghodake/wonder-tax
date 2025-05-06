@@ -15,14 +15,15 @@ const AGE_OPTIONS: string[] = [
 ]
 
 const Step1 = () => {
-  const [selectedAge, setSelectedAge] = useState<number | null>(null)
+  const [selectedAge, setSelectedAge] = useState<string[]>([])
 
   const { userData, setUserData } = useMobileHomeStepsProvider()
 
   const handleContinue = () => {
-    if (selectedAge === null) return
+    if (selectedAge.length < 1) return
 
-    setUserData({ ...userData, age: AGE_OPTIONS[selectedAge] })
+    setUserData({ ...userData, age: selectedAge[0] })
+    console.log('userData:', userData)
     redirect('/mobile/userInfo/step2')
   }
 
@@ -39,14 +40,7 @@ const Step1 = () => {
         <span className='text-center font-bold'>What is your age?</span>
 
         <div className='w-full space-y-4'>
-          {AGE_OPTIONS.map((item, idx) => (
-            <SelectOption
-              key={item}
-              label={item}
-              selected={selectedAge === idx}
-              onClick={() => setSelectedAge(idx)}
-            />
-          ))}
+          <SelectOption options={AGE_OPTIONS} setOptions={setSelectedAge} />
         </div>
 
         <button
