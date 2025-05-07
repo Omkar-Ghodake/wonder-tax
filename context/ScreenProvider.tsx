@@ -1,8 +1,7 @@
 'use client'
 
 import { ScreenContextType } from '@/types/contextTypes'
-import { redirect, usePathname } from 'next/navigation'
-import React, {
+import {
   createContext,
   ReactNode,
   useContext,
@@ -21,23 +20,6 @@ const ScreenProvider = ({ children }: { children: ReactNode }) => {
     height: undefined,
   })
 
-  const pathname = usePathname()
-
-  const handleRedirection = () => {
-    if (typeof window === 'undefined') return
-
-    if (window.innerWidth >= 768) {
-      if (pathname.includes('/m/')) {
-        redirect('/')
-      }
-    } else if (window.innerWidth < 768) {
-      if (!pathname.includes('/m/')) {
-        // redirect('/m')
-        console.log('redirecting to m....')
-      }
-    }
-  }
-
   useEffect(() => {
     const handleResize = () => {
       setWindowSize({
@@ -48,12 +30,9 @@ const ScreenProvider = ({ children }: { children: ReactNode }) => {
       // handleRedirection()
     }
 
-    console.log('dimensions:', window.innerWidth, window.innerHeight)
-
     window.addEventListener('resize', handleResize)
 
     handleResize()
-    // handleRedirection()
 
     return () => window.removeEventListener('resize', handleResize)
   }, [])

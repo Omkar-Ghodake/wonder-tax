@@ -3,8 +3,10 @@
 import AssistantHeaderSm from '@/components/mobile/userInfoSteps/AssistantHeaderSm'
 import Form from '@/components/ui/Form'
 import Input from '@/components/ui/Input'
+import { useSessionProvider } from '@/context/SessionProvider'
 import { handleGoogleSignIn } from '@/server-actions/auth'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import { HTMLInputTypeAttribute, useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 
@@ -34,9 +36,17 @@ const page = () => {
     password?: string
   }>({ email: undefined, password: undefined })
 
+  const { userSession } = useSessionProvider()
+
   const handleOnSubmit = () => {}
 
-  return (
+  if (userSession) redirect('/mobile')
+
+  return userSession ? (
+    <div className='h-[80vh] flex justify-center items-center'>
+      <h1 className='text-2xl font-semibold text-center'>Signing In...</h1>
+    </div>
+  ) : (
     <div className='p-5 space-y-5'>
       <AssistantHeaderSm
         title='Welcome to Wondertax'
