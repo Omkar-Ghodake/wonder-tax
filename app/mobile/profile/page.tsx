@@ -6,7 +6,7 @@ import React from 'react'
 const Profile = () => {
   const { userSession } = useSessionProvider()
 
-  return (
+  return userSession ? (
     <div className='space-y-5'>
       <h1 className='text-center text-2xl font-bold'>Profile</h1>
 
@@ -26,6 +26,10 @@ const Profile = () => {
       <p>
         <span className='font-semibold'>Email:</span> {userSession?.user?.email}
       </p>
+    </div>
+  ) : (
+    <div className='text-2xl font-bold text-center'>
+      Please login to see profile
     </div>
   )
 }
