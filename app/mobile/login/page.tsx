@@ -5,7 +5,7 @@ import SelectOption from '@/components/mobile/userInfoSteps/SelectOption'
 import { redirect } from 'next/navigation'
 import React, { useState } from 'react'
 
-const Login = () => {
+const UserAuth = () => {
   const [selectedOption, setSelectedOption] = useState<number[]>([])
 
   const handleContinue = () => {
@@ -49,4 +49,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default UserAuth

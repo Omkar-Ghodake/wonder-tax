@@ -6,6 +6,7 @@ import Footer from '@/layouts/footer/Footer'
 import ScreenProvider from '@/context/ScreenProvider'
 import ScreenRedirect from '@/components/ScreenRedirect'
 import MobileNavbar from '@/components/mobile/navbar/MobileNavbar'
+import SessionProvider from '@/context/SessionProvider'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -25,19 +26,21 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`bg-background`}>
-        <ScreenProvider>
-          <div className='md:h-[15vh] w-full sticky top-0 left-0 z-40'>
-            <Navbar />
-          </div>
+        <SessionProvider>
+          <ScreenProvider>
+            <div className='md:h-[15vh] w-full sticky top-0 left-0 z-40'>
+              <Navbar />
+            </div>
 
-          <div>{children}</div>
+            <div>{children}</div>
 
-          <ScreenRedirect />
+            <ScreenRedirect />
 
-          <div>
-            <Footer />
-          </div>
-        </ScreenProvider>
+            <div>
+              <Footer />
+            </div>
+          </ScreenProvider>
+        </SessionProvider>
       </body>
     </html>
   )
