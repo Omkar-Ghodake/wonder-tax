@@ -32,7 +32,7 @@ const FORM_INPUTS: {
     name: 'password',
     placeholder: '********',
     type: 'password',
-    info: 'Minimum 8 characters, including letters, numbers, and symbols.',
+    info: 'Minimum 8 characters, including uppercase and lowercase letters, numbers, and symbols.',
   },
 ]
 

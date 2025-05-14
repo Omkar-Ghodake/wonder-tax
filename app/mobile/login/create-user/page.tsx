@@ -19,6 +19,7 @@ const FORM_INPUTS: {
   placeholder?: string
   type?: HTMLInputTypeAttribute
   required?: boolean
+  info?: string
 }[] = [
   {
     label: 'Name',
@@ -40,6 +41,7 @@ const FORM_INPUTS: {
     name: 'password',
     placeholder: '********',
     type: 'password',
+    info: 'Minimum 8 characters, including uppercase and lowercase letters, numbers, and symbols.',
   },
   {
     label: 'Confirm Password',
