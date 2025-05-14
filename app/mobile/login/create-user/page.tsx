@@ -120,6 +120,7 @@ const CreateUser = () => {
         <Success
           redirectUrl='/mobile/login/user-login'
           setShowSuccess={setShowSuccess}
+          text='Registration successful!'
         />
       )}
     </div>

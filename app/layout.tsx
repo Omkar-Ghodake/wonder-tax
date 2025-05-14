@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Raleway } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/layouts/navbar/Navbar'
 import Footer from '@/layouts/footer/Footer'
@@ -10,6 +10,11 @@ import SessionProvider from '@/context/SessionProvider'
 
 const inter = Inter({
   variable: '--font-inter',
+  subsets: ['latin'],
+})
+
+const raleway = Raleway({
+  variable: '--font-raleway',
   subsets: ['latin'],
 })
 
@@ -25,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`bg-background`}>
+      <body className={`bg-background ${inter.className} ${inter.variable}`}>
         <SessionProvider>
           <ScreenProvider>
             <div className='md:h-[15vh] w-full sticky top-0 left-0 z-40'>

@@ -19,6 +19,16 @@ const MobileNavbar = () => {
 
   const { userSession, handleLogout } = useSessionProvider()
 
+  const getFirstName = (name: string) => {
+    const firstName = name?.split(' ')[0]
+    console.log('firstName:', firstName)
+    console.log(
+      'final anme:',
+      firstName.charAt(0)?.toUpperCase() + firstName?.slice(1)
+    )
+    return firstName.charAt(0)?.toUpperCase() + firstName?.slice(1)
+  }
+
   useEffect(() => {
     setIsNavbarOpen(false)
     document.body.classList.toggle('overflow-h-screen', isNavbarOpen)
@@ -46,8 +56,14 @@ const MobileNavbar = () => {
       <div className='w-fit h-full flex items-center font-semibold text-sm'>
         {userSession ? (
           <div className='relative'>
-            <span onClick={() => setShowProfileOptions(!showProfileOptions)}>
-              <FaUser className='text-2xl text-primary' />
+            <span
+              onClick={() => setShowProfileOptions(!showProfileOptions)}
+              className='text-primary'
+            >
+              {/* <FaUser className='text-2xl text-primary' /> */}
+              {getFirstName(
+                userSession?.user?.name || userSession?.user?.username
+              )}
             </span>
 
             <motion.div

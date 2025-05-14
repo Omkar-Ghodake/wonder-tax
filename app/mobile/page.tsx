@@ -3,10 +3,10 @@ import Link from 'next/link'
 import React from 'react'
 
 const DATA = [
-  '100% accurate and transparent',
-  'Completely online process',
-  'Dedicated expert help',
-  'Advisory for savings',
+  { title: '100% accurate and transparent', image: 'target.png' },
+  { title: 'Completely online process', image: 'browser.png' },
+  { title: 'Dedicated expert help', image: 'operator.png' },
+  { title: 'Advisory for savings', image: 'savings.png' },
 ]
 
 const page = () => {
@@ -28,9 +28,16 @@ const page = () => {
 
       <div className='grid grid-cols-2'>
         {DATA.map((item) => (
-          <div key={item} className='h-14 flex items-center text-sm'>
-            <div className='bg-[#E1E1E1] w-10 h-10 rounded-full'></div>
-            <span className='w-9/12 pl-2'>{item}</span>
+          <div key={item.title} className='h-14 flex items-center text-sm'>
+            <div className='relative bg-[E1E1E1] w-10 h-10 rounded-full'>
+              <Image
+                src={`/home/${item.image}`}
+                alt=''
+                fill
+                className='object-contain'
+              />
+            </div>
+            <span className='w-9/12 pl-2'>{item.title}</span>
           </div>
         ))}
       </div>
