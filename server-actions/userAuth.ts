@@ -60,7 +60,7 @@ export const handleUserRegister: ServerAction = async ({
   }
 }
 
-export const handleGoogleSignIn: ServerAction = async () => {
+export const handleGoogleSignIn = async () => {
   const res = await dbConnect()
   if (!res?.success) return res
 
