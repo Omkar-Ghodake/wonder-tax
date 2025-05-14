@@ -5,8 +5,8 @@ import React from 'react'
 const DATA = [
   '100% accurate and transparent',
   'Completely online process',
-  'Dedicated tax expert help',
-  'Free advisory for tax savings',
+  'Dedicated expert help',
+  'Advisory for savings',
 ]
 
 const page = () => {

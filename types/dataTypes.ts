@@ -45,3 +45,9 @@ export type NavLinkType = {
   isDropdown: boolean
   icon?: ReactElement
 }
+
+export type ServerActionReturn = {
+  success: boolean
+  message: string
+  data?: any
+} | void

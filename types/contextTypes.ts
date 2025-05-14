@@ -14,8 +14,8 @@ export type MobileHomeStepsContextType = {
 } | null
 
 export type SessionContextType = {
-  userSession: Session | null
-  setUserSession: React.Dispatch<React.SetStateAction<Session | null>>
+  userSession: any
+  setUserSession: React.Dispatch<React.SetStateAction<any>>
   updateSession: () => void
   handleLogout: () => void
 } | null

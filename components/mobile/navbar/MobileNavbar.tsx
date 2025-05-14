@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 import { FaUser } from 'react-icons/fa'
 import NavbarToggler from './NavbarToggler'
 import PrimaryNavList from './PrimaryNavList'
-import { handleAuthSignOut } from '@/server-actions/auth'
+import { handleAuthSignOut } from '@/server-actions/userAuth'
 
 const MobileNavbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState<boolean>(false)

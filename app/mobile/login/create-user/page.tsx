@@ -3,6 +3,7 @@
 import AssistantHeaderSm from '@/components/mobile/userInfoSteps/AssistantHeaderSm'
 import Form from '@/components/ui/Form'
 import Input from '@/components/ui/Input'
+import { handleUserRegister } from '@/server-actions/userAuth'
 import Link from 'next/link'
 import { FormEvent, HTMLInputTypeAttribute, useState } from 'react'
 
@@ -21,12 +22,13 @@ const FORM_INPUTS: {
   },
   {
     label: 'Mobile number',
-    name: 'mobileNumber',
+    name: 'phone',
     placeholder: '10 Digit mobile number',
   },
   {
     label: 'Email address',
     name: 'email',
+    type: 'email',
     placeholder: 'Your email address',
   },
   {
@@ -46,15 +48,19 @@ const FORM_INPUTS: {
 const CreateUser = () => {
   const [formData, setFormData] = useState({
     username: undefined,
-    mobileNumber: undefined,
+    phone: undefined,
     email: undefined,
     password: undefined,
     confirmPassword: undefined,
   })
 
-  const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log('formData:', formData)
+
+    const response = await handleUserRegister(formData)
+
+    console.log('response:', response)
   }
 
   return (
@@ -84,15 +90,6 @@ const CreateUser = () => {
         </span>
 
         <div className='flex items-center justify-center space-x-2 px-5'>
-          <Link href={'/mobile'} className='w-1/2'>
-            <button
-              className='font-semibold text-sm bg-[#AEAEAE] px-6 py-3 text-white rounded-md w-full'
-              type='button'
-            >
-              Skip
-            </button>
-          </Link>
-
           <button
             className='font-semibold text-sm bg-[#53BB5F] px-6 py-3 text-white rounded-md w-1/2'
             type='submit'

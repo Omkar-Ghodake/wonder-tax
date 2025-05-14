@@ -1,10 +1,18 @@
 'use client'
 
 import { useSessionProvider } from '@/context/SessionProvider'
-import React from 'react'
+import { useRouter } from 'next/navigation'
+import React, { useEffect } from 'react'
 
 const Profile = () => {
   const { userSession } = useSessionProvider()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!userSession) {
+      router.push('/mobile/login')
+    }
+  }, [userSession])
 
   return userSession ? (
     <div className='space-y-5'>
@@ -16,7 +24,9 @@ const Profile = () => {
         {userSession?.user?.image && (
           <img src={userSession?.user?.image} alt='' className='w-20 h-20' />
         )}
-        <p className='text-lg font-semibold'>{userSession?.user?.name}</p>
+        <p className='text-lg font-semibold'>
+          {userSession?.user?.name || userSession?.username}
+        </p>
       </div>
 
       <p className=''>
@@ -24,7 +34,8 @@ const Profile = () => {
       </p>
 
       <p>
-        <span className='font-semibold'>Email:</span> {userSession?.user?.email}
+        <span className='font-semibold'>Email:</span>{' '}
+        {userSession?.user?.email || userSession?.email}
       </p>
     </div>
   ) : (

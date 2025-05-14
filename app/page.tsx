@@ -51,26 +51,6 @@ export default function Home() {
           <GetStarted />
         </div>
       </div>
-
-      <div className='flex flex-col items-center justify-center'>
-        <div>
-          <Image src={'/mobile/landing.png'} alt='' width={250} height={250} />
-        </div>
-
-        <div className='text-center'>
-          <h2 className='font-bold text-[18px] leading-[130%]'>
-            Income tax returns <br /> the easiest way possible
-          </h2>
-
-          <p className='text-[12px] text-[#5C5D67]'>
-            Instant process with expert support
-          </p>
-        </div>
-
-        <div></div>
-
-        <div></div>
-      </div>
     </>
   )
 }

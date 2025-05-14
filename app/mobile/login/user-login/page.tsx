@@ -4,10 +4,12 @@ import AssistantHeaderSm from '@/components/mobile/userInfoSteps/AssistantHeader
 import Form from '@/components/ui/Form'
 import Input from '@/components/ui/Input'
 import { useSessionProvider } from '@/context/SessionProvider'
-import { handleGoogleSignIn } from '@/server-actions/auth'
-import Link from 'next/link'
-import { redirect } from 'next/navigation'
-import { HTMLInputTypeAttribute, useState } from 'react'
+import {
+  handleCredentialsSignIn,
+  handleGoogleSignIn,
+} from '@/server-actions/userAuth'
+import { useRouter } from 'next/navigation'
+import { FormEvent, HTMLInputTypeAttribute, useEffect, useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 
 const FORM_INPUTS: {
@@ -36,11 +38,26 @@ const page = () => {
     password?: string
   }>({ email: undefined, password: undefined })
 
-  const { userSession } = useSessionProvider()
+  const { userSession, setUserSession } = useSessionProvider()
+  const router = useRouter()
 
-  const handleOnSubmit = () => {}
+  const handleOnSubmit = async (e: FormEvent) => {
+    try {
+      e.preventDefault()
+      const res = await handleCredentialsSignIn(formData)
 
-  if (userSession) redirect('/mobile')
+      console.log('response:', res)
+      if (res?.success) {
+        setUserSession(res?.data)
+      } else {
+        return alert(res?.message)
+      }
+
+      router.push('/mobile')
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return userSession ? (
     <div className='h-[80vh] flex justify-center items-center'>
@@ -73,15 +90,6 @@ const page = () => {
         </span>
 
         <div className='flex items-center justify-center space-x-2 px-5'>
-          <Link href={'/mobile'} className='w-1/2'>
-            <button
-              className='font-semibold text-sm bg-[#AEAEAE] px-6 py-3 text-white rounded-md w-full'
-              type='button'
-            >
-              Skip
-            </button>
-          </Link>
-
           <button
             className='font-semibold text-sm bg-[#53BB5F] px-6 py-3 text-white rounded-md w-1/2'
             type='submit'

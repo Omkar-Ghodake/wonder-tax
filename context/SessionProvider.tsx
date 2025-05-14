@@ -1,6 +1,6 @@
 'use client'
 
-import { getUserSession, handleAuthSignOut } from '@/server-actions/auth'
+import { getUserSession, handleAuthSignOut } from '@/server-actions/userAuth'
 import { SessionContextType } from '@/types/contextTypes'
 import { Session } from 'next-auth'
 import {
@@ -14,7 +14,7 @@ import {
 export const SessionContext = createContext<SessionContextType>(null)
 
 const SessionProvider = ({ children }: { children: ReactNode }) => {
-  const [userSession, setUserSession] = useState<Session | null>(null)
+  const [userSession, setUserSession] = useState<any>(null)
 
   const updateSession = async () => {
     const session = await getUserSession()
