@@ -1,43 +1,41 @@
 import AssistantHeaderSm from '@/components/mobile/userInfoSteps/AssistantHeaderSm'
-import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 const SERVICES: { title: string; image: string; tag?: string; href: string }[] =
   [
     {
       title: 'Income Tax',
-      href: '/services/income-tax',
+      href: '/ITR',
       image: '',
       tag: 'POPULAR',
     },
     {
       title: 'GST',
-      href: '/services/gst',
+      href: '/GST',
       image: '',
       tag: '',
     },
     {
       title: 'Registration',
-      href: '/services/registration',
+      href: '/FIRM',
       image: '',
       tag: '',
     },
     {
       title: 'Payroll',
-      href: '/services/payroll',
+      href: '/PFPT',
       image: '',
       tag: '',
     },
     {
       title: 'Start-up',
-      href: '/services/start-up',
+      href: '/PKG',
       image: '',
       tag: '',
     },
     {
       title: 'Advisory',
-      href: '/services/advisory',
+      href: '/PLAN',
       image: '',
       tag: '',
     },
@@ -54,7 +52,7 @@ const Services = () => {
       <div className='grid grid-cols-2 p-5 gap-5 '>
         {SERVICES.map((service) => (
           <Link
-            href={service.href}
+            href={`/mobile/services/${service.href}`}
             key={service.title}
             className='relative flex flex-col items-center w-[120px] h-[120px] justify-center p-3 bg-primary/40 rounded-md overflow-hidden'
           >

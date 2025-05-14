@@ -3,10 +3,10 @@
 import { useParams } from 'next/navigation'
 import React from 'react'
 
-const Service = () => {
+const IndividualPlan = () => {
   const params = useParams()
 
-  return <div>{params.service}kjb</div>
+  return <div>Plan - {params.id}</div>
 }
 
-export default Service
+export default IndividualPlan

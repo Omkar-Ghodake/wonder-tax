@@ -1,12 +1,10 @@
-'use client'
-
 import { useParams } from 'next/navigation'
 import React from 'react'
 
-const Service = () => {
+const SubService = () => {
   const params = useParams()
 
-  return <div>{params.service}kjb</div>
+  return <div>SubService</div>
 }
 
-export default Service
+export default SubService
