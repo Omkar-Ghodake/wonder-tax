@@ -8,6 +8,7 @@ import {
   handleCredentialsSignIn,
   handleGoogleSignIn,
 } from '@/server-actions/userAuth'
+import { checkEmail, checkPassword } from '@/server-actions/utils'
 import { useRouter } from 'next/navigation'
 import { FormEvent, HTMLInputTypeAttribute, useEffect, useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
@@ -18,6 +19,8 @@ const FORM_INPUTS: {
   placeholder?: string
   type?: HTMLInputTypeAttribute
   required?: boolean
+  errorMsg?: string
+  info?: string
 }[] = [
   {
     label: 'Email address',
@@ -29,6 +32,7 @@ const FORM_INPUTS: {
     name: 'password',
     placeholder: '********',
     type: 'password',
+    info: 'Minimum 8 characters, including letters, numbers, and symbols.',
   },
 ]
 
@@ -38,12 +42,39 @@ const page = () => {
     password?: string
   }>({ email: undefined, password: undefined })
 
+  const [showError, setShowError] = useState<{
+    inputName: string | null
+    errorMsg: string | null
+  }>({
+    inputName: null,
+    errorMsg: null,
+  })
+
   const { userSession, setUserSession } = useSessionProvider()
   const router = useRouter()
 
   const handleOnSubmit = async (e: FormEvent) => {
     try {
       e.preventDefault()
+      setShowError({ inputName: null, errorMsg: null })
+
+      const isEmailValid = await checkEmail(formData.email)
+      if (!isEmailValid.success) {
+        return setShowError({
+          inputName: 'email',
+          errorMsg: isEmailValid.message,
+        })
+      }
+
+      const isPasswordValid = await checkPassword(formData.password)
+
+      if (!isPasswordValid.success) {
+        return setShowError({
+          inputName: 'password',
+          errorMsg: isPasswordValid.message,
+        })
+      }
+
       const res = await handleCredentialsSignIn(formData)
 
       if (res?.success) {
@@ -79,6 +110,8 @@ const page = () => {
             formData={formData}
             setFormData={setFormData}
             required={item.required}
+            info={item.info}
+            showError={showError}
           />
         ))}
 

@@ -5,6 +5,12 @@ import Success from '@/components/Success'
 import Form from '@/components/ui/Form'
 import Input from '@/components/ui/Input'
 import { handleUserRegister } from '@/server-actions/userAuth'
+import {
+  checkEmail,
+  checkPassword,
+  checkPhoneNumber,
+  checkUsername,
+} from '@/server-actions/utils'
 import { FormEvent, HTMLInputTypeAttribute, useState } from 'react'
 
 const FORM_INPUTS: {
@@ -18,7 +24,6 @@ const FORM_INPUTS: {
     label: 'Name',
     name: 'username',
     placeholder: 'John Doe',
-    required: true,
   },
   {
     label: 'Mobile number',
@@ -28,7 +33,6 @@ const FORM_INPUTS: {
   {
     label: 'Email address',
     name: 'email',
-    type: 'email',
     placeholder: 'Your email address',
   },
   {
@@ -54,11 +58,59 @@ const CreateUser = () => {
     confirmPassword: undefined,
   })
 
+  const [showError, setShowError] = useState<{
+    inputName: string | null
+    errorMsg: string | null
+  }>({
+    inputName: null,
+    errorMsg: null,
+  })
+
   const [showSuccess, setShowSuccess] = useState<boolean>(false)
 
   const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault()
+
+      const isUsernameValid = await checkUsername(formData.username)
+      if (!isUsernameValid.success) {
+        return setShowError({
+          inputName: 'username',
+          errorMsg: isUsernameValid.message,
+        })
+      }
+
+      const isPhoneValid = await checkPhoneNumber(formData.phone)
+      if (!isPhoneValid.success) {
+        return setShowError({
+          inputName: 'phone',
+          errorMsg: isPhoneValid.message,
+        })
+      }
+
+      const isEmailValid = await checkEmail(formData.email)
+      if (!isEmailValid.success) {
+        return setShowError({
+          inputName: 'email',
+          errorMsg: isEmailValid.message,
+        })
+      }
+
+      if (formData.password !== formData.confirmPassword) {
+        return setShowError({
+          inputName: 'confirmPassword',
+          errorMsg: 'Passwords do not match.',
+        })
+      }
+
+      const isPasswordValid = await checkPassword(formData.password)
+      if (!isPasswordValid.success) {
+        return setShowError({
+          inputName: 'password',
+          errorMsg: isPasswordValid.message,
+        })
+      }
+
       const response = await handleUserRegister(formData)
 
       if (response?.success) {
@@ -98,6 +150,7 @@ const CreateUser = () => {
             formData={formData}
             setFormData={setFormData}
             required={item.required}
+            showError={showError}
           />
         ))}
 

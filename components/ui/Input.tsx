@@ -9,6 +9,8 @@ const Input = ({
   formData,
   setFormData,
   required = false,
+  info,
+  showError,
 }: {
   name: string
   label: string
@@ -17,6 +19,8 @@ const Input = ({
   formData: any
   setFormData: any
   required?: boolean
+  info?: string
+  showError?: any
 }) => {
   const [showPassword, setShowPassword] = useState<boolean>(false)
 
@@ -25,8 +29,10 @@ const Input = ({
   }
 
   return (
-    <div className='flex flex-col font-medium text-sm space-y-2'>
-      <label htmlFor={name}>{label}</label>
+    <div className='flex flex-col font-medium text-sm'>
+      <label className='mb-2' htmlFor={name}>
+        {label}
+      </label>
       <div className='relative w-full'>
         <input
           name={name}
@@ -35,7 +41,11 @@ const Input = ({
             type === 'password' ? (showPassword ? 'text' : 'password') : type
           }
           onChange={onChange}
-          className='border border-[#959595] px-2 py-4 rounded-md w-full outline-primary/40'
+          className={`border border-[#959595] px-2 py-4 rounded-md w-full outline-primary/40 ${
+            showError?.errorMsg &&
+            showError?.inputName === name &&
+            'border-red-500 outline-red-500'
+          }`}
           required={required}
         />
 
@@ -48,6 +58,12 @@ const Input = ({
           </span>
         )}
       </div>
+
+      {showError?.errorMsg && showError?.inputName === name && (
+        <span className='mt-1 text-xs text-red-500'>{showError?.errorMsg}</span>
+      )}
+
+      {info && <span className='mt-1 text-xs'>{info}</span>}
     </div>
   )
 }

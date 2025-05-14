@@ -50,4 +50,4 @@ export type ServerActionReturn = {
   success: boolean
   message: string
   data?: any
-} | void
+}
