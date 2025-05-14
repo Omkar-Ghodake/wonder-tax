@@ -10,7 +10,7 @@ const MobileNavLink = ({ link }: { link: NavLinkType }) => {
 
   return (
     <li className={`text-lg ${pathname === link.href && 'text-primary'}`}>
-      <Link href={link.href}>{link.label}</Link>
+      <Link href={`/mobile/${link.href}`}>{link.label}</Link>
     </li>
   )
 }

@@ -9,7 +9,7 @@ const DATA = [
   { title: 'Advisory for savings', image: 'savings.png' },
 ]
 
-const page = () => {
+const Home = () => {
   return (
     <div className='w-screen h-[90vh] overflow-hidden flex-col items-center justify-center space-y-5 bg-white p-5'>
       <div className='flex justify-center items-center w-full'>
@@ -43,7 +43,7 @@ const page = () => {
       </div>
 
       <div className='flex flex-col items-center space-y-2 pt-2'>
-        <Link href={'/mobile/userInfo/step1'} className='w-full'>
+        <Link href={'/mobile/services'} className='w-full'>
           <button className='font-semibold text-lg bg-primary text-white w-full py-4 rounded-lg'>
             Get started now
           </button>
@@ -57,4 +57,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Home

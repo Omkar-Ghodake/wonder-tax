@@ -132,8 +132,6 @@ const CreateUser = () => {
     }
   }
 
-  const redirectUser = () => {}
-
   return (
     <div className='p-5 space-y-5'>
       <AssistantHeaderSm

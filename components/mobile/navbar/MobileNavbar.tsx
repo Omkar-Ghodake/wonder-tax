@@ -8,8 +8,8 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { FaUser } from 'react-icons/fa'
 import NavbarToggler from './NavbarToggler'
-import PrimaryNavList from './PrimaryNavList'
 import { handleAuthSignOut } from '@/server-actions/userAuth'
+import MobilePrimaryNavList from './MobilePrimaryNavList'
 
 const MobileNavbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState<boolean>(false)
@@ -93,7 +93,7 @@ const MobileNavbar = () => {
         )}
       </div>
 
-      <PrimaryNavList isNavbarOpen={isNavbarOpen} />
+      <MobilePrimaryNavList isNavbarOpen={isNavbarOpen} />
     </div>
   )
 }

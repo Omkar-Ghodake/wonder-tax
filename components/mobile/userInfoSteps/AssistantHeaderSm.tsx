@@ -21,15 +21,17 @@ const AssistantHeaderSm = ({
           />
         </div>
 
-        <div className=''>
-          {title.split('.').map((str) => (
-            <span key={str}>
-              <strong>{str}</strong> <br />
-            </span>
-          ))}
-        </div>
+        <div className='space-y-1'>
+          <div className=''>
+            {title.split('.').map((str) => (
+              <span key={str}>
+                <strong>{str}</strong> <br />
+              </span>
+            ))}
+          </div>
 
-        <p className=''>{description}</p>
+          <p className=''>{description}</p>
+        </div>
       </div>
 
       {/* <div className='space-y-5'>
