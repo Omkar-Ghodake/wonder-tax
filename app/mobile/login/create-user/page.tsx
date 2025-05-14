@@ -1,11 +1,10 @@
 'use client'
 
 import AssistantHeaderSm from '@/components/mobile/userInfoSteps/AssistantHeaderSm'
+import Success from '@/components/Success'
 import Form from '@/components/ui/Form'
 import Input from '@/components/ui/Input'
 import { handleUserRegister } from '@/server-actions/userAuth'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { FormEvent, HTMLInputTypeAttribute, useState } from 'react'
 
 const FORM_INPUTS: {
@@ -55,7 +54,7 @@ const CreateUser = () => {
     confirmPassword: undefined,
   })
 
-  const router = useRouter()
+  const [showSuccess, setShowSuccess] = useState<boolean>(false)
 
   const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
     try {
@@ -63,15 +62,23 @@ const CreateUser = () => {
       const response = await handleUserRegister(formData)
 
       if (response?.success) {
+        setShowSuccess(true)
+        setFormData({
+          username: undefined,
+          phone: undefined,
+          email: undefined,
+          password: undefined,
+          confirmPassword: undefined,
+        })
       } else {
         return alert(response?.message)
       }
-
-      router.push('/mobile/login/user-login')
     } catch (error) {
       console.error(error)
     }
   }
+
+  const redirectUser = () => {}
 
   return (
     <div className='p-5 space-y-5'>
@@ -108,6 +115,13 @@ const CreateUser = () => {
           </button>
         </div>
       </Form>
+
+      {showSuccess && (
+        <Success
+          redirectUrl='/mobile/login/user-login'
+          setShowSuccess={setShowSuccess}
+        />
+      )}
     </div>
   )
 }
