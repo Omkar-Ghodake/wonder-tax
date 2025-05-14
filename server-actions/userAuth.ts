@@ -96,6 +96,7 @@ export const handleCredentialsSignIn: ServerAction = async ({
       return { success: false, message: 'Invalid credentials.' }
 
     const sendUser = {
+      id: existingUser._id,
       username: existingUser.username,
       phone: existingUser.phone,
       email: existingUser.email,

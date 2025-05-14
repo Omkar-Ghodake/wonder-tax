@@ -14,6 +14,8 @@ const Profile = () => {
     }
   }, [userSession])
 
+  console.log('userSession:', userSession)
+
   return userSession ? (
     <div className='space-y-5'>
       <h1 className='text-center text-2xl font-bold'>Profile</h1>
@@ -25,7 +27,7 @@ const Profile = () => {
           <img src={userSession?.user?.image} alt='' className='w-20 h-20' />
         )}
         <p className='text-lg font-semibold'>
-          {userSession?.user?.name || userSession?.username}
+          {userSession?.user?.name || userSession?.user?.username}
         </p>
       </div>
 
@@ -34,8 +36,7 @@ const Profile = () => {
       </p>
 
       <p>
-        <span className='font-semibold'>Email:</span>{' '}
-        {userSession?.user?.email || userSession?.email}
+        <span className='font-semibold'>Email:</span> {userSession?.user?.email}
       </p>
     </div>
   ) : (

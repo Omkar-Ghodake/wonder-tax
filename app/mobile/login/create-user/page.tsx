@@ -5,6 +5,7 @@ import Form from '@/components/ui/Form'
 import Input from '@/components/ui/Input'
 import { handleUserRegister } from '@/server-actions/userAuth'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { FormEvent, HTMLInputTypeAttribute, useState } from 'react'
 
 const FORM_INPUTS: {
@@ -54,13 +55,22 @@ const CreateUser = () => {
     confirmPassword: undefined,
   })
 
+  const router = useRouter()
+
   const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log('formData:', formData)
+    try {
+      e.preventDefault()
+      const response = await handleUserRegister(formData)
 
-    const response = await handleUserRegister(formData)
+      if (response?.success) {
+      } else {
+        return alert(response?.message)
+      }
 
-    console.log('response:', response)
+      router.push('/mobile/login/user-login')
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (

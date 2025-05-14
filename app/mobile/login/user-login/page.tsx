@@ -46,13 +46,11 @@ const page = () => {
       e.preventDefault()
       const res = await handleCredentialsSignIn(formData)
 
-      console.log('response:', res)
       if (res?.success) {
         setUserSession(res?.data)
       } else {
         return alert(res?.message)
       }
-
       router.push('/mobile')
     } catch (error) {
       console.error(error)
