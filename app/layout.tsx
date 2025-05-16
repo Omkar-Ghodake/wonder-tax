@@ -1,12 +1,11 @@
+import ScreenRedirect from '@/components/ScreenRedirect'
+import ScreenProvider from '@/context/ScreenProvider'
+import SessionProvider from '@/context/SessionProvider'
+import Footer from '@/layouts/footer/Footer'
+import Navbar from '@/layouts/navbar/Navbar'
 import type { Metadata } from 'next'
 import { Inter, Raleway } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/layouts/navbar/Navbar'
-import Footer from '@/layouts/footer/Footer'
-import ScreenProvider from '@/context/ScreenProvider'
-import ScreenRedirect from '@/components/ScreenRedirect'
-import MobileNavbar from '@/components/mobile/navbar/MobileNavbar'
-import SessionProvider from '@/context/SessionProvider'
 
 const inter = Inter({
   variable: '--font-inter',

@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { ComponentType, ReactElement } from 'react'
 
 export type HomeLanding2DataType = { title: string; desc: string }
 
@@ -44,7 +44,27 @@ export type NavLinkType = {
   isLink: boolean
   isDropdown: boolean
   icon?: ReactElement
+  dropdownType?: 'services' | 'about' | 'tools'
 }
+
+export type ServicesDropdownType = {
+  service: {
+    title: ServicesType
+    href: string
+    subServices: {
+      title: string
+      href: string
+    }[]
+  }
+}[]
+
+export type ServicesType =
+  | 'Tax Filing and Advisory'
+  | 'GST Services'
+  | 'Business Registrations'
+  | 'Payroll & Compliance'
+  | 'Financial Planning'
+  | 'Secretarial Practice'
 
 export type ServerActionReturn = {
   success: boolean

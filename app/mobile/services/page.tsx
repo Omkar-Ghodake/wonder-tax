@@ -1,45 +1,50 @@
 import AssistantHeaderSm from '@/components/mobile/userInfoSteps/AssistantHeaderSm'
+import Image from 'next/image'
 import Link from 'next/link'
 
-const SERVICES: { title: string; image: string; tag?: string; href: string }[] =
-  [
-    {
-      title: 'Income Tax',
-      href: '/ITR',
-      image: '',
-      tag: 'POPULAR',
-    },
-    {
-      title: 'GST',
-      href: '/GST',
-      image: '',
-      tag: '',
-    },
-    {
-      title: 'Registration',
-      href: '/FIRM',
-      image: '',
-      tag: '',
-    },
-    {
-      title: 'Payroll',
-      href: '/PFPT',
-      image: '',
-      tag: '',
-    },
-    {
-      title: 'Start-up',
-      href: '/PKG',
-      image: '',
-      tag: '',
-    },
-    {
-      title: 'Advisory',
-      href: '/PLAN',
-      image: '',
-      tag: '',
-    },
-  ]
+const SERVICES: {
+  title: string[]
+  image: string
+  tag?: string
+  href: string
+}[] = [
+  {
+    title: ['Income Tax'],
+    href: '/ITR',
+    image: '/mobile/services/ITR.png',
+    tag: 'POPULAR',
+  },
+  {
+    title: ['GST'],
+    href: '/GST',
+    image: '',
+    tag: '',
+  },
+  {
+    title: ['Registration'],
+    href: '/FIRM',
+    image: '',
+    tag: '',
+  },
+  {
+    title: ['Payroll'],
+    href: '/PFPT',
+    image: '',
+    tag: '',
+  },
+  {
+    title: ['Financial Plan'],
+    href: '/PKG',
+    image: '',
+    tag: '',
+  },
+  {
+    title: ['Advisory', 'Compliance'],
+    href: '/PLAN',
+    image: '',
+    tag: '',
+  },
+]
 
 const Services = () => {
   return (
@@ -53,25 +58,25 @@ const Services = () => {
         {SERVICES.map((service) => (
           <Link
             href={`/mobile/services/${service.href}`}
-            key={service.title}
+            key={service.href}
             className='relative flex flex-col items-center w-[120px] h-[120px] justify-center p-3 bg-primary/40 rounded-md overflow-hidden'
           >
             <div className='flex flex-col items-center justify-between w-full h-full'>
-              <div className='h-[68px] w-[51px] border border-black/30'>
-                {/* <Image
-                    src={service.image}
-                    alt={service.title}
-                    className='mb-2'
-                    fill
-                  /> */}
+              <div className='relative h-[68px] w-[51px]'>
+                {/* <div className='itr-img'></div> */}
+                {service.image && (
+                  <Image src={service.image} alt={''} className='mb-2' fill />
+                )}
               </div>
 
               <h2 className='text-sm font-semibold text-[#0B6488]'>
-                {service.title}
+                {service.title.map((str) => (
+                  <span key={str}>{str}</span>
+                ))}
               </h2>
 
               {service.tag && (
-                <span className='absolute inset-0 text-[6.84px] bg-[#75C6E8] text-white font-bold px-5 text-center py-[2px] w-fit h-fit -translate-x-[30%] -rotate-45 translate-y-[50%] tracking-[0]'>
+                <span className='absolute inset-0 text-[6.84px] bg-green-500 text-white font-bold px-5 text-center py-[2px] w-fit h-fit -translate-x-[30%] -rotate-45 translate-y-[50%] tracking-[0]'>
                   {service.tag}
                 </span>
               )}
