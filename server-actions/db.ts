@@ -43,7 +43,7 @@ export const getUserFromDb = async (obj: GetUserFromDBType) => {
   const res = await dbConnect()
   if (!res?.success) return res
 
-  let user = await User.findOne(obj)
+  let user = await User.findOne(obj).select('-password')
 
   return user
 }

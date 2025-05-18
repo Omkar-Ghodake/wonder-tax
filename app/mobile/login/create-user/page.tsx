@@ -4,6 +4,7 @@ import AssistantHeaderSm from '@/components/mobile/userInfoSteps/AssistantHeader
 import Success from '@/components/Success'
 import Form from '@/components/ui/Form'
 import Input from '@/components/ui/Input'
+import { getUserFromDb } from '@/server-actions/db'
 import { handleUserRegister } from '@/server-actions/userAuth'
 import {
   checkEmail,
@@ -98,6 +99,16 @@ const CreateUser = () => {
         })
       }
 
+      if (formData.email) {
+        const doesUserExist = await getUserFromDb({ email: formData.email })
+
+        if (doesUserExist)
+          return setShowError({
+            inputName: 'email',
+            errorMsg: 'User with this email already exists.',
+          })
+      }
+
       if (formData.password !== formData.confirmPassword) {
         return setShowError({
           inputName: 'confirmPassword',
@@ -124,8 +135,6 @@ const CreateUser = () => {
           password: undefined,
           confirmPassword: undefined,
         })
-
-        afterSuccessfulRegistration()
       } else {
         return alert(response?.message)
       }
@@ -133,8 +142,6 @@ const CreateUser = () => {
       console.error(error)
     }
   }
-
-  const afterSuccessfulRegistration = () => {}
 
   return (
     <div className='p-5 space-y-5'>
