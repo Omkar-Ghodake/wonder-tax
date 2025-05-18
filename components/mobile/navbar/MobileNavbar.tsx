@@ -6,10 +6,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { FaUser } from 'react-icons/fa'
-import NavbarToggler from './NavbarToggler'
-import { handleAuthSignOut } from '@/server-actions/userAuth'
 import MobilePrimaryNavList from './MobilePrimaryNavList'
+import NavbarToggler from './NavbarToggler'
 
 const MobileNavbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState<boolean>(false)

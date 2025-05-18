@@ -47,6 +47,7 @@ export const PRIMARY_MOBILE_NAV_LINKS: NavLinkType[] = [
     href: '',
     isLink: false,
     isDropdown: true,
+    dropdownType: 'services',
   },
   {
     label: 'Blogs',
@@ -105,7 +106,7 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType[] = [
   {
     service: {
       title: 'GST Services',
-      href: '/temp',
+      href: '/gst',
       subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
       subServices: [
         {
