@@ -10,7 +10,7 @@ export const PRIMARY_NAV_LINKS: NavLinkType[] = [
   },
   {
     label: 'Services',
-    href: '/services',
+    href: '',
     isLink: false,
     isDropdown: true,
     dropdownType: 'services',
@@ -44,7 +44,7 @@ export const PRIMARY_MOBILE_NAV_LINKS: NavLinkType[] = [
   },
   {
     label: 'Services',
-    href: '/services',
+    href: '',
     isLink: false,
     isDropdown: true,
   },
@@ -68,35 +68,36 @@ export const PRIMARY_MOBILE_NAV_LINKS: NavLinkType[] = [
   },
 ]
 
-export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType = [
+export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType[] = [
   {
     service: {
       title: 'Tax Filing and Advisory',
-      href: '/services/tax-filing-and-advisory',
+      href: '/tax-filing-and-advisory',
+      subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
       subServices: [
         {
           title: 'Income Tax Return Filing (Individuals, HUFs)',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Business Return Filing (Firms, Companies)',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'TDS Return Filing',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Property TDS Return - Form 26QB',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Income Tax Notices & Response Handling',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'TAN Registration',
-          href: '#',
+          href: '/temp',
         },
       ],
     },
@@ -104,31 +105,32 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType = [
   {
     service: {
       title: 'GST Services',
-      href: '#',
+      href: '/temp',
+      subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
       subServices: [
         {
           title: 'GST Registration',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'LUT Registration ',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'GST Return Filing ',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'GST Annual Return (GSTR 9/9C)',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'GST Cancellation / Final Return (GSTR 10)',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'GST Notice Response',
-          href: '#',
+          href: '/temp',
         },
       ],
     },
@@ -136,35 +138,36 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType = [
   {
     service: {
       title: 'Business Registrations',
-      href: '#',
+      href: '/temp',
+      subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
       subServices: [
         {
           title: 'Proprietorship Firm ',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Partnership Firm ',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'One Person Company (OPC)',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Limited Liability Partnership (LLP)',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Company Registration',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Trademark Registration',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Import Export Code ',
-          href: '#',
+          href: '/temp',
         },
       ],
     },
@@ -172,27 +175,28 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType = [
   {
     service: {
       title: 'Payroll & Compliance',
-      href: '#',
+      href: '/temp',
+      subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
       subServices: [
         {
           title: '360 degree Payroll Management',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'PF / PT / ESIC Registration',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'PF / PT / ESIC Return Filing ',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Shop & Establishment License',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Professional Tax Registration',
-          href: '#',
+          href: '/temp',
         },
       ],
     },
@@ -200,27 +204,28 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType = [
   {
     service: {
       title: 'Financial Planning',
-      href: '#',
+      href: '/temp',
+      subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
       subServices: [
         {
           title: 'GoalSmart - Financial Planning',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'WealthEdge - Investment Planning',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'RetireWell - Retirement Planning',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'FinLite - DIY Financial Planning Kit',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Wealth360 - Family Concierge',
-          href: '#',
+          href: '/temp',
         },
       ],
     },
@@ -228,27 +233,28 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType = [
   {
     service: {
       title: 'Secretarial Practice',
-      href: '#',
+      href: '/temp',
+      subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
       subServices: [
         {
           title: 'ROC Annual Compliance (Companies & LLPs)',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Company/LLP/OPC Compliance',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'DIN e-KYC',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'Winding Up (Company / LLP)',
-          href: '#',
+          href: '/temp',
         },
         {
           title: 'CXO Services / Virtual CFO',
-          href: '#',
+          href: '/temp',
         },
       ],
     },

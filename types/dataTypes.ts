@@ -51,12 +51,13 @@ export type ServicesDropdownType = {
   service: {
     title: ServicesType
     href: string
+    subText: string
     subServices: {
       title: string
       href: string
     }[]
   }
-}[]
+}
 
 export type ServicesType =
   | 'Tax Filing and Advisory'

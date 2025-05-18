@@ -1,36 +1,68 @@
 'use client'
 
 import { SERVICES_DROPDOWN_LINKS } from '@/data/navbar'
-import { ServicesType } from '@/types/dataTypes'
+import useClickOutsideElement from '@/hooks/useClickOutsideElement'
+import { ServicesDropdownType } from '@/types/dataTypes'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import { useRef, useState } from 'react'
+import { FaAngleRight } from 'react-icons/fa'
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
 
-const ServicesDropdown = () => {
-  const [selectedService, setSelectedService] = useState<any>()
+const ServicesDropdown = ({ closeDropdown }: { closeDropdown: () => void }) => {
+  const [selectedService, setSelectedService] = useState<ServicesDropdownType>(
+    SERVICES_DROPDOWN_LINKS[0]
+  )
+
+  const servicesDropdownRef = useRef(null)
+
+  useClickOutsideElement(servicesDropdownRef, closeDropdown)
 
   return (
-    <div className='fixed left-1/2 -translate-x-1/2 bg-white border top-[10vh] hidden md:block'>
-      <div className='side-bar'>
-        {SERVICES_DROPDOWN_LINKS.map((item) => (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className='fixed left-1/2 -translate-x-1/2 bg-white shadow-2xl border border-gray-500/30 rounded-lg top-[10vh] hidden md:flex w-[70vw] h-[70vh]'
+      ref={servicesDropdownRef}
+    >
+      <div className='side-bar w-[30%] bg-gray-500/10'>
+        {SERVICES_DROPDOWN_LINKS.map((item, idx) => (
           <div
-            className={``}
-            onClick={() => setSelectedService(item.service.subServices)}
+            key={item.service.title}
+            className={`cursor-pointer px-4 py-3 flex items-center justify-between hover:bg-primary/10 border-l-4 ${
+              item.service.title === selectedService.service.title
+                ? 'bg-primary/10 border-primary'
+                : 'border-transparent hover:border-primary'
+            } duration-150`}
+            onClick={() => setSelectedService(item)}
           >
-            {item.service.title}
+            <span>{item.service.title}</span>
+            <FaAngleRight />
           </div>
         ))}
       </div>
 
-      <div className='content p-5'>
+      <div className='content p-5 w-[70%] space-y-5'>
         <div>
-          <h2 className='title'></h2>
+          <h2 className='title'>{selectedService.service.title}</h2>
 
-          <p className='sub-text'></p>
+          <p className='sub-text'>{selectedService.service.subText}</p>
         </div>
 
-        <div className='sub-services'></div>
+        <div className='sub-services grid grid-cols-3 gap-5'>
+          {selectedService.service.subServices.map((subItem) => (
+            <Link
+              key={subItem.title}
+              href={`/services${selectedService.service.href}${subItem.href}`}
+              className='border border-gray-500/30 px-2 py-4 rounded-lg flex space-x-2 hover:border-primary duration-150 hover:bg-primary/5'
+            >
+              <IoMdCheckmarkCircleOutline className='text-2xl w-fit text-primary' />
+              <span className='text-sm w-full'>{subItem.title}</span>
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

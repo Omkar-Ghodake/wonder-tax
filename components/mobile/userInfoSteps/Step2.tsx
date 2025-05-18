@@ -15,17 +15,10 @@ const INCOME_SRC_OPTIONS: string[] = [
   'Foreign Income',
 ]
 
-const Step2 = () => {
+const Step2 = ({ handleContinue }: { handleContinue: () => void }) => {
   const [selectedIncomeSrc, setSelectedIncomeSrc] = useState<string[]>([])
 
   const { userData, setUserData } = useMobileHomeStepsProvider()
-
-  const handleContinue = () => {
-    if (selectedIncomeSrc.length < 1) return
-
-    setUserData({ ...userData, incomeSrc: selectedIncomeSrc })
-    redirect('/mobile/userInfo/step3')
-  }
 
   return (
     <div className='flex flex-col space-y-5'>

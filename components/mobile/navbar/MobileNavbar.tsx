@@ -94,10 +94,6 @@ const MobileNavbar = () => {
       </div>
 
       <MobilePrimaryNavList isNavbarOpen={isNavbarOpen} />
-
-      <div>
-        <Image alt='' src={'/'} />
-      </div>
     </div>
   )
 }

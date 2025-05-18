@@ -104,8 +104,6 @@ const SERVICE_LIST: Record<
 }
 
 const ServiceList = ({ service }: { service: MainServices }) => {
-  console.log(SERVICE_LIST[service])
-
   return (
     <div className='p-5 flex flex-col gap-4'>
       {SERVICE_LIST[service].list.map((item) => (

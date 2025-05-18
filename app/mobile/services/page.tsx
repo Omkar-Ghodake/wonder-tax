@@ -1,3 +1,4 @@
+import SlidingTitle from '@/components/mobile/services/SlidingTitle'
 import AssistantHeaderSm from '@/components/mobile/userInfoSteps/AssistantHeaderSm'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,31 +18,31 @@ const SERVICES: {
   {
     title: ['GST'],
     href: '/GST',
-    image: '',
+    image: '/mobile/services/GST.png',
     tag: '',
   },
   {
     title: ['Registration'],
     href: '/FIRM',
-    image: '',
+    image: '/mobile/services/FIRM.png',
     tag: '',
   },
   {
     title: ['Payroll'],
     href: '/PFPT',
-    image: '',
+    image: '/mobile/services/PFPT.png',
     tag: '',
   },
   {
     title: ['Financial Plan'],
     href: '/PKG',
-    image: '',
+    image: '/mobile/services/PKG.png',
     tag: '',
   },
   {
     title: ['Advisory', 'Compliance'],
     href: '/PLAN',
-    image: '',
+    image: '/mobile/services/PLAN.png',
     tag: '',
   },
 ]
@@ -69,11 +70,7 @@ const Services = () => {
                 )}
               </div>
 
-              <h2 className='text-sm font-semibold text-[#0B6488]'>
-                {service.title.map((str) => (
-                  <span key={str}>{str}</span>
-                ))}
-              </h2>
+              <SlidingTitle titles={service.title} />
 
               {service.tag && (
                 <span className='absolute inset-0 text-[6.84px] bg-green-500 text-white font-bold px-5 text-center py-[2px] w-fit h-fit -translate-x-[30%] -rotate-45 translate-y-[50%] tracking-[0]'>

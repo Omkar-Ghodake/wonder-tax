@@ -14,18 +14,18 @@ const AGE_OPTIONS: string[] = [
   'Above 80 years (Super Citizen)',
 ]
 
-const Step1 = () => {
+const Step1 = ({ handleContinue }: { handleContinue: () => void }) => {
   const [selectedAge, setSelectedAge] = useState<string[]>([])
 
   const { userData, setUserData } = useMobileHomeStepsProvider()
 
-  const handleContinue = () => {
-    if (selectedAge.length < 1) return
+  // const handleContinue = () => {
+  //   if (selectedAge.length < 1) return
 
-    setUserData({ ...userData, age: selectedAge[0] })
-    console.log('userData:', userData)
-    redirect('/mobile/userInfo/step2')
-  }
+  //   setUserData({ ...userData, age: selectedAge[0] })
+  //   console.log('userData:', userData)
+  //   redirect('/mobile/userInfo/step2')
+  // }
 
   return (
     <div className='space-y-5'>

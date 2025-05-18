@@ -1,6 +1,7 @@
 import { PRIMARY_MOBILE_NAV_LINKS } from '@/data/navbar'
 import React from 'react'
 import MobileNavLink from './MobileNavLink'
+import Image from 'next/image'
 
 const MobilePrimaryNavList = ({ isNavbarOpen }: { isNavbarOpen: boolean }) => {
   return (
@@ -12,6 +13,10 @@ const MobilePrimaryNavList = ({ isNavbarOpen }: { isNavbarOpen: boolean }) => {
       {PRIMARY_MOBILE_NAV_LINKS.map((link) => (
         <MobileNavLink link={link} key={link.label} />
       ))}
+
+      <div className='mt-10'>
+        <Image alt='/' src={'/home/landing1.png'} width={300} height={300} />
+      </div>
     </ul>
   )
 }
