@@ -1,4 +1,6 @@
-import { FormEventHandler, ReactNode } from 'react'
+'use client'
+
+import { FormEvent, FormEventHandler, ReactNode, useRef } from 'react'
 
 const Form = ({
   children,
@@ -11,8 +13,19 @@ const Form = ({
   submitButton?: boolean
   submitButtonText?: string
 }) => {
+  const formRef = useRef<HTMLFormElement>(null)
+
+  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+    formRef.current && formRef.current.reset()
+    onSubmit(event)
+  }
+
   return (
-    <form onSubmit={onSubmit} className='flex flex-col space-y-5'>
+    <form
+      onSubmit={handleFormSubmit}
+      ref={formRef}
+      className='flex flex-col space-y-5'
+    >
       {children}
       {submitButton && <button type='submit'>Submit</button>}
     </form>

@@ -124,6 +124,8 @@ const CreateUser = () => {
           password: undefined,
           confirmPassword: undefined,
         })
+
+        afterSuccessfulRegistration()
       } else {
         return alert(response?.message)
       }
@@ -132,13 +134,14 @@ const CreateUser = () => {
     }
   }
 
+  const afterSuccessfulRegistration = () => {}
+
   return (
     <div className='p-5 space-y-5'>
       <AssistantHeaderSm
         title='Welcome to Wondertax'
         description='Please share your details so that you can make an account and save your progress.'
       />
-
       <Form onSubmit={handleOnSubmit} submitButton={false}>
         {FORM_INPUTS.map((item) => (
           <Input
@@ -168,12 +171,12 @@ const CreateUser = () => {
           </button>
         </div>
       </Form>
-
       {showSuccess && (
         <Success
           redirectUrl='/mobile/login/user-login'
           setShowSuccess={setShowSuccess}
           text='Registration successful!'
+          imgUrl='/mobile/registerSuccess.gif'
         />
       )}
     </div>
