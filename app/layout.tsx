@@ -6,6 +6,8 @@ import Navbar from '@/layouts/navbar/Navbar'
 import type { Metadata } from 'next'
 import { Inter, Raleway } from 'next/font/google'
 import './globals.css'
+import Spinner from '@/layouts/loaders/Spinner'
+import LoadingProvider from '@/context/LoadingProvider'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -32,17 +34,21 @@ export default function RootLayout({
       <body className={`bg-background ${inter.className} ${inter.variable}`}>
         <SessionProvider>
           <ScreenProvider>
-            <div className='md:h-[15vh] w-full sticky top-0 left-0 z-40'>
-              <Navbar />
-            </div>
+            <LoadingProvider>
+              <div className='md:h-[15vh] w-full sticky top-0 left-0 z-40'>
+                <Navbar />
+              </div>
 
-            <div>{children}</div>
+              <div>{children}</div>
 
-            <ScreenRedirect />
+              <ScreenRedirect />
 
-            <div>
-              <Footer />
-            </div>
+              <div>
+                <Footer />
+              </div>
+
+              <Spinner />
+            </LoadingProvider>
           </ScreenProvider>
         </SessionProvider>
       </body>

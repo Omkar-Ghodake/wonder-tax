@@ -4,6 +4,7 @@ import AssistantHeaderSm from '@/components/mobile/userInfoSteps/AssistantHeader
 import Success from '@/components/Success'
 import Form from '@/components/ui/Form'
 import Input from '@/components/ui/Input'
+import { useLoadingProvider } from '@/context/LoadingProvider'
 import { getUserFromDb } from '@/server-actions/db'
 import { handleUserRegister } from '@/server-actions/userAuth'
 import {
@@ -69,12 +70,15 @@ const CreateUser = () => {
     errorMsg: null,
   })
 
+  const { setLoadingState } = useLoadingProvider()
+
   const [registrationSuccessful, setRegistrationSuccessful] =
     useState<boolean>(false)
 
   const [showSuccess, setShowSuccess] = useState<boolean>(false)
 
   const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    setLoadingState({ loader: 'spinner', msg: null })
     try {
       e.preventDefault()
 
@@ -82,6 +86,8 @@ const CreateUser = () => {
 
       const isUsernameValid = await checkUsername(formData.username)
       if (!isUsernameValid.success) {
+        console.log(1)
+        setLoadingState({ loader: null, msg: null })
         return setShowError({
           inputName: 'username',
           errorMsg: isUsernameValid.message,
@@ -90,6 +96,8 @@ const CreateUser = () => {
 
       const isPhoneValid = await checkPhoneNumber(formData.phone)
       if (!isPhoneValid.success) {
+        console.log(2)
+        setLoadingState({ loader: null, msg: null })
         return setShowError({
           inputName: 'phone',
           errorMsg: isPhoneValid.message,
@@ -98,6 +106,8 @@ const CreateUser = () => {
 
       const isEmailValid = await checkEmail(formData.email)
       if (!isEmailValid.success) {
+        console.log(3)
+        setLoadingState({ loader: null, msg: null })
         return setShowError({
           inputName: 'email',
           errorMsg: isEmailValid.message,
@@ -107,14 +117,33 @@ const CreateUser = () => {
       if (formData.email) {
         const doesUserExist = await getUserFromDb({ email: formData.email })
 
-        if (doesUserExist)
+        if (doesUserExist) {
+          console.log(4)
+          setLoadingState({ loader: null, msg: null })
           return setShowError({
             inputName: 'email',
             errorMsg: 'User with this email already exists.',
           })
+        }
+      }
+
+      if (formData.username) {
+        const doesUserExist = await getUserFromDb({
+          username: formData.username,
+        })
+
+        if (doesUserExist) {
+          console.log(4)
+          setLoadingState({ loader: null, msg: null })
+          return setShowError({
+            inputName: 'username',
+            errorMsg: 'User with this username already exists.',
+          })
+        }
       }
 
       if (formData.password !== formData.confirmPassword) {
+        setLoadingState({ loader: null, msg: null })
         return setShowError({
           inputName: 'confirmPassword',
           errorMsg: 'Passwords do not match.',
@@ -123,6 +152,7 @@ const CreateUser = () => {
 
       const isPasswordValid = await checkPassword(formData.password)
       if (!isPasswordValid.success) {
+        setLoadingState({ loader: null, msg: null })
         return setShowError({
           inputName: 'password',
           errorMsg: isPasswordValid.message,
@@ -141,10 +171,15 @@ const CreateUser = () => {
           confirmPassword: undefined,
         })
         setRegistrationSuccessful(true)
+        setLoadingState({ loader: null, msg: null })
       } else {
+        setLoadingState({ loader: null, msg: null })
         return alert(response?.message)
       }
+
+      setLoadingState({ loader: null, msg: null })
     } catch (error) {
+      setLoadingState({ loader: null, msg: null })
       setRegistrationSuccessful(false)
       console.error(error)
     }
@@ -172,6 +207,7 @@ const CreateUser = () => {
             setFormData={setFormData}
             required={item.required}
             showError={showError}
+            info={item.info}
           />
         ))}
 

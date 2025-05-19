@@ -45,7 +45,7 @@ export const getUserFromDb = async (obj: GetUserFromDBType) => {
 
   let user = await User.findOne(obj).select('-password')
 
-  return user
+  if (user) return JSON.parse(JSON.stringify(user))
 }
 
 export const createUser = async (data: any) => {
@@ -58,9 +58,8 @@ export const createUser = async (data: any) => {
   }
 
   let user = await User.create(data)
-  console.log('uyser:')
-  console.log(user)
-  return user
+
+  return JSON.parse(JSON.stringify(user))
 }
 
 export default dbConnect

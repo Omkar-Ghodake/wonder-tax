@@ -72,3 +72,8 @@ export type ServerActionReturn = {
   message: string
   data?: any
 }
+
+export type LoadingStateType = {
+  loader: 'spinner' | null
+  msg: string | null
+}

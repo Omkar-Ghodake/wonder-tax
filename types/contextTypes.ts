@@ -1,5 +1,6 @@
 import { Session } from 'next-auth'
 import React from 'react'
+import { LoadingStateType } from './dataTypes'
 
 export type ScreenContextType = {
   windowSize: {
@@ -18,4 +19,9 @@ export type SessionContextType = {
   setUserSession: React.Dispatch<React.SetStateAction<any>>
   updateSession: () => void
   handleLogout: () => void
+} | null
+
+export type LoadingContextType = {
+  loadingState: LoadingStateType
+  setLoadingState: React.Dispatch<React.SetStateAction<LoadingStateType>>
 } | null
