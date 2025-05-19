@@ -7,16 +7,18 @@ const Form = ({
   onSubmit,
   submitButton = true,
   submitButtonText = 'Submit',
+  registrationSuccessful,
 }: {
   children: ReactNode
   onSubmit: FormEventHandler<HTMLFormElement>
   submitButton?: boolean
   submitButtonText?: string
+  registrationSuccessful?: boolean
 }) => {
   const formRef = useRef<HTMLFormElement>(null)
 
   const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
-    formRef.current && formRef.current.reset()
+    registrationSuccessful && formRef.current && formRef.current.reset()
     onSubmit(event)
   }
 

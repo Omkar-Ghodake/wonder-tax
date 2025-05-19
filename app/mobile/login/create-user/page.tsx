@@ -69,6 +69,9 @@ const CreateUser = () => {
     errorMsg: null,
   })
 
+  const [registrationSuccessful, setRegistrationSuccessful] =
+    useState<boolean>(false)
+
   const [showSuccess, setShowSuccess] = useState<boolean>(false)
 
   const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -149,7 +152,11 @@ const CreateUser = () => {
         title='Welcome to Wondertax'
         description='Please share your details so that you can make an account and save your progress.'
       />
-      <Form onSubmit={handleOnSubmit} submitButton={false}>
+      <Form
+        onSubmit={handleOnSubmit}
+        submitButton={false}
+        registrationSuccessful={registrationSuccessful}
+      >
         {FORM_INPUTS.map((item) => (
           <Input
             key={item.name}
