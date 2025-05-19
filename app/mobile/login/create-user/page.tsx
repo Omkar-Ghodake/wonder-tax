@@ -78,6 +78,8 @@ const CreateUser = () => {
     try {
       e.preventDefault()
 
+      setRegistrationSuccessful(false)
+
       const isUsernameValid = await checkUsername(formData.username)
       if (!isUsernameValid.success) {
         return setShowError({
@@ -138,10 +140,12 @@ const CreateUser = () => {
           password: undefined,
           confirmPassword: undefined,
         })
+        setRegistrationSuccessful(true)
       } else {
         return alert(response?.message)
       }
     } catch (error) {
+      setRegistrationSuccessful(false)
       console.error(error)
     }
   }
