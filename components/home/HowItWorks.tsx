@@ -10,11 +10,11 @@ const HowItWorks = () => {
           {HOW_IT_WORKS.map((item, idx) => (
             <div
               key={item.step}
-              className='p-10 flex flex-col space-y-5 shadow-lg'
+              className='p-10 flex flex-col space-y-5 shadow-lg h-full'
             >
               <div className='relative w- h-56'>
                 <Image
-                  src={`/home/${item.icon}`}
+                  src={`/home${item.icon}`}
                   alt=''
                   className='mx-auto object-contain'
                   fill

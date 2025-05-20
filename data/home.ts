@@ -65,53 +65,51 @@ export const BENEFITS: HomeBenefitsType[] = [
   {
     title: 'One Stop Solution',
     description:
-      'We are a one stop solution Provider for all your taxation, Financial and business needs.',
-    icon: 'wc1.png',
+      'All your taxation, financial, and business needs under one roof.',
+    icon: '/wc1.png',
   },
   {
     title: '100% Accuracy Guaranteed',
     description:
-      'Our technology based platform and trained experts ensure 100% accuracy in delivering services.',
-    icon: 'wc2.png',
+      'Our technology and trained experts ensure precise service delivery.',
+    icon: '/wc2.png',
   },
   {
     title: 'Fastest Tax Refunds',
     description:
-      'We guarantee you the maximum eligible refunds without any follow ups with the department.',
-    icon: 'wc3.png',
+      'We maximize your eligible refunds without the need for follow-ups.',
+    icon: '/wc3.png',
   },
   {
-    title: 'Financial Dashboard',
-    description:
-      'We provide you with your own Personalized dashboard with all your financial information at one place.',
-    icon: 'wc4.png',
+    title: 'Personalized Financial Dashboard',
+    description: 'Access all your financial information in one place.',
+    icon: '/wc4.png',
   },
   {
-    title: 'Privacy and Confidentiality',
-    description:
-      'We ensure strict adherence to our privacy and confidentiality norms to ensure that your data is safe and secure with us.',
-    icon: 'wc5.png',
+    title: 'Data Privacy & Confidentiality',
+    description: 'We adhere to strict privacy norms to keep your data secure.',
+    icon: '/wc5.png',
   },
   {
     title: 'Ease of doing Business',
     description:
-      'Offload your financial and taxation department to us so that you can keep your focus on the main business.',
-    icon: 'wc6.png',
+      'Delegate your financial and taxation tasks to us and focus on your core business.',
+    icon: '/wc6.png',
   },
 ]
 
 export const HOW_IT_WORKS: HomeHowItWorksType[] = [
   {
-    step: 'Create your free account and log in Help us know you better by tell us little bit about yourself.',
-    icon: 'hiw1.png',
+    step: 'Create Your Free Account: Sign up and tell us a bit about yourself.',
+    icon: '/hiw1.png',
   },
   {
-    step: 'Choose from our wide range of services catering to all your needs or get help from our advisors to help you navigate.',
-    icon: 'hiw2.png',
+    step: 'Choose Services: Select from our wide range of services or consult our advisors for guidance.',
+    icon: '/hiw2.png',
   },
   {
-    step: 'Buy your plan, sit back and relax We will deliver the availed services on time without any hassle.',
-    icon: 'hiw3.png',
+    step: "Relax: Purchase your plan, and we'll deliver the services promptly without any hassle.",
+    icon: '/hiw3.png',
   },
 ]
 
@@ -119,23 +117,21 @@ export const TESTIMONIALS: HomeTestimonialsType[] = [
   {
     quote: 'Quicker than all',
     author: 'Ashok Ram',
-    content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-    image: 'profile1.jpg',
+    content: 'WonderTax made my tax filing process seamless and fast.',
+    image: '/profile1.jpg',
   },
   {
     quote: 'Peace of mind',
     author: 'Nandita Kumar',
     content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-    image: 'profile2.jpg',
+      'Their expertise gave me confidence that my finances are in good hands.',
+    image: '/profile2.jpg',
   },
   {
     quote: 'Bye bye confusion',
     author: 'Stella John',
-    content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-    image: 'profile3.jpg',
+    content: 'They simplified complex tax concepts for me.',
+    image: '/profile3.jpg',
   },
 ]
 

@@ -34,7 +34,7 @@ export type HomeStatsType = {
 
 export type AboutInfoGraphics = {
   title: string
-  description: string
+  description: string[]
   image: string
 }
 
@@ -60,12 +60,12 @@ export type ServicesDropdownType = {
 }
 
 export type ServicesType =
-  | 'Tax Filing and Advisory'
+  | 'Tax Filing & Advisory'
   | 'GST Services'
   | 'Business Registrations'
-  | 'Payroll & Compliance'
-  | 'Financial Planning'
-  | 'Secretarial Practice'
+  | 'Payroll & Labor Compliance'
+  | 'Financial Planning & Wealth Services'
+  | ' Corporate & Secretarial Compliance'
 
 export type ServerActionReturn = {
   success: boolean

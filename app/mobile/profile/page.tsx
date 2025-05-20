@@ -34,7 +34,7 @@ const Profile = () => {
       </div>
 
       <p className=''>
-        <span className='font-semibold'>ID:</span>{' '}
+        <span className='font-semibold'>ID:</span>
         {userSession?.user?.id || userSession?.id}
       </p>
 

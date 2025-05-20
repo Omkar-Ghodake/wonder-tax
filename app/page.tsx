@@ -35,13 +35,13 @@ export default function Home() {
           <KeyServices />
         </div>
 
-        <div>
+        {/* <div>
           <h1 className='text-[28px] leading-[40px] font-medium text-center h-[20vh] flex items-end justify-center'>
             Solid background
           </h1>
 
           <Stats />
-        </div>
+        </div> */}
 
         <div>
           <Testimonials />

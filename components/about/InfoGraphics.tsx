@@ -8,19 +8,21 @@ const InfoGraphics = () => {
       {INFO_GRAPHICS.map((item, idx) => (
         <div
           key={item.title}
-          className='flex justify-between items-center h-[85vh] px-32'
+          className='flex justify-between items-center min-h-[85vh] px-32 mt-5'
         >
-          <div className={`w-1/2 ${idx % 2 !== 0 && 'order-2'}`}>
+          <div className={`w-1/2 ${idx % 2 !== 0 && 'order-2'} space-y-5`}>
             <h1 className='font-bold text-[48px] leading-[58px]'>
               {item.title}
             </h1>
 
-            {item.description.split('.').map((str, idx) => (
-              <p key={str} className='text-[24px] leading-[56px]'>
-                {str}
-                {idx < str.length - 1 && '.'}
-              </p>
-            ))}
+            <div className='space-y-2'>
+              {item.description.map((str, idx) => (
+                <p key={str} className='text-xl'>
+                  {str}
+                  {idx < str.length - 1 && '.'}
+                </p>
+              ))}
+            </div>
           </div>
 
           <div className='w-1/2 flex justify-center'>

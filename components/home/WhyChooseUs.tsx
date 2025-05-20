@@ -9,7 +9,7 @@ const WhyChooseUs = () => {
         {BENEFITS.map((item, idx) => (
           <div key={item.title} className='w-1/3'>
             <div className='px-10'>
-              <Image src={`/home/${item.icon}`} alt='' width={50} height={50} />
+              <Image src={`/home${item.icon}`} alt='' width={50} height={50} />
 
               <p className='font-medium text-[20px] leading-[40px]'>
                 {item.title}

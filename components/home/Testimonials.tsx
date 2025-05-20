@@ -1,8 +1,6 @@
 import { TESTIMONIALS } from '@/data/home'
 import Image from 'next/image'
-import React from 'react'
 import { ImQuotesLeft } from 'react-icons/im'
-import { SiComma } from 'react-icons/si'
 
 const Testimonials = () => {
   return (
@@ -10,10 +8,10 @@ const Testimonials = () => {
       <div className='grid grid-cols-3'>
         {TESTIMONIALS.map((item) => (
           <div key={item.author} className='p-5'>
-            <div className='relative p-5 border border-black/20'>
+            <div className='relative p-5 border border-black/20 h-full'>
               <div className='relative h-10 w-10 mx-auto'>
                 <Image
-                  src={`/home/${item.image}`}
+                  src={`/home${item.image}`}
                   alt=''
                   className='rounded-full object-cover mb-5'
                   fill

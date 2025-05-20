@@ -28,15 +28,18 @@ const About = () => {
         <HowItWorks />
       </div>
 
-      <div className=''>
+      {/* <div className=''>
         <h1 className='text-[48px] leading-[50px] font-bold text-center h-[10vh] flex items-center justify-center'>
           Oue Customers Love Us!
         </h1>
 
         <Stats />
-      </div>
+      </div> */}
 
-      <div>
+      <div className=''>
+        <h1 className='text-[48px] leading-[50px] font-bold text-center h-[10vh] flex items-center justify-center'>
+          Testimonials
+        </h1>
         <Testimonials />
       </div>
 

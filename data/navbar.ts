@@ -72,9 +72,10 @@ export const PRIMARY_MOBILE_NAV_LINKS: NavLinkType[] = [
 export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType[] = [
   {
     service: {
-      title: 'Tax Filing and Advisory',
+      title: 'Tax Filing & Advisory',
       href: '/tax-filing-and-advisory',
-      subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+      subText:
+        'Professional tax services for individuals and businesses to optimize tax benefits and ensure compliance.',
       subServices: [
         {
           title: 'Income Tax Return Filing (Individuals, HUFs)',
@@ -107,7 +108,8 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType[] = [
     service: {
       title: 'GST Services',
       href: '/gst',
-      subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+      subText:
+        'Comprehensive GST solutions for registration, regular filing, and compliance assistance.',
       subServices: [
         {
           title: 'GST Registration',
@@ -140,7 +142,8 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType[] = [
     service: {
       title: 'Business Registrations',
       href: '/temp',
-      subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+      subText:
+        'End-to-end business registration services for various entity types and regulatory requirements.',
       subServices: [
         {
           title: 'Proprietorship Firm ',
@@ -175,9 +178,10 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType[] = [
   },
   {
     service: {
-      title: 'Payroll & Compliance',
+      title: 'Payroll & Labor Compliance',
       href: '/temp',
-      subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+      subText:
+        'Streamlined payroll management and labor compliance solutions for businesses of all sizes.',
       subServices: [
         {
           title: '360 degree Payroll Management',
@@ -204,9 +208,10 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType[] = [
   },
   {
     service: {
-      title: 'Financial Planning',
+      title: 'Financial Planning & Wealth Services',
       href: '/temp',
-      subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+      subText:
+        'Expert financial planning and wealth management services to secure your financial future.',
       subServices: [
         {
           title: 'GoalSmart - Financial Planning',
@@ -233,9 +238,10 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType[] = [
   },
   {
     service: {
-      title: 'Secretarial Practice',
+      title: ' Corporate & Secretarial Compliance',
       href: '/temp',
-      subText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+      subText:
+        'Professional support for ongoing corporate compliance and secretarial requirements.',
       subServices: [
         {
           title: 'ROC Annual Compliance (Companies & LLPs)',
