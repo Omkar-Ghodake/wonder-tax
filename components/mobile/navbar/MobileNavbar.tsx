@@ -19,11 +19,6 @@ const MobileNavbar = () => {
 
   const getFirstName = (name: string) => {
     const firstName = name?.split(' ')[0]
-    console.log('firstName:', firstName)
-    console.log(
-      'final anme:',
-      firstName.charAt(0)?.toUpperCase() + firstName?.slice(1)
-    )
     return firstName.charAt(0)?.toUpperCase() + firstName?.slice(1)
   }
 
@@ -60,7 +55,9 @@ const MobileNavbar = () => {
             >
               {/* <FaUser className='text-2xl text-primary' /> */}
               {getFirstName(
-                userSession?.user?.name || userSession?.user?.username
+                userSession?.user?.name ||
+                  userSession?.user?.username ||
+                  userSession?.username
               )}
             </span>
 

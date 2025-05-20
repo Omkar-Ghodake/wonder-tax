@@ -27,16 +27,20 @@ const Profile = () => {
           <img src={userSession?.user?.image} alt='' className='w-20 h-20' />
         )}
         <p className='text-lg font-semibold'>
-          {userSession?.user?.name || userSession?.user?.username}
+          {userSession?.user?.name ||
+            userSession?.user?.username ||
+            userSession?.username}
         </p>
       </div>
 
       <p className=''>
-        <span className='font-semibold'>ID:</span> {userSession?.user?.id}
+        <span className='font-semibold'>ID:</span>{' '}
+        {userSession?.user?.id || userSession?.id}
       </p>
 
       <p>
-        <span className='font-semibold'>Email:</span> {userSession?.user?.email}
+        <span className='font-semibold'>Email:</span>
+        {userSession?.user?.email || userSession?.email}
       </p>
     </div>
   ) : (

@@ -1,6 +1,7 @@
 'use server'
 
 import { ServerActionReturn } from '@/types/dataTypes'
+import { cookies } from 'next/headers'
 
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
@@ -17,19 +18,44 @@ export const saltAndHashPassword = async (plainPassword: string) => {
   return pwHash
 }
 
-export const verifyPassword = async (string1: string, string2: string) => {
-  const isMatch = await bcrypt.compare(string1, string2)
+export const verifyPassword = async (
+  string1: string,
+  string2: string
+): Promise<ServerActionReturn> => {
+  if (!string1 || string2)
+    return { success: false, message: 'Both strings are required.' }
 
-  return isMatch
+  const isMatch: boolean = await bcrypt.compare(string1, string2)
+
+  return { success: isMatch, message: '' }
 }
 
-export const createJWT = async (payload: any) => {
+export const createJWT = async (payload: any): Promise<ServerActionReturn> => {
   try {
     const token = jwt.sign(payload, JWT_SECRET)
 
-    return token
+    if (!token) return { success: false, message: 'Failed to create token.' }
+
+    return { success: true, message: '', data: token }
   } catch (error) {
     return { success: false, message: 'Session creation failed.' }
+  }
+}
+
+export const verifyJWT = async (): Promise<ServerActionReturn> => {
+  try {
+    const cookieStore = await cookies()
+    const token = cookieStore.get('credentials-token')
+
+    if (!token) return { success: false, message: 'No token found.' }
+
+    const data = jwt.verify(token.value, JWT_SECRET)
+
+    if (!data) return { success: false, message: 'User data not found.' }
+
+    return { success: true, message: 'Session verified successfully.', data }
+  } catch (error) {
+    return { success: false, message: 'Session verification failed.' }
   }
 }
 

@@ -17,8 +17,11 @@ const SessionProvider = ({ children }: { children: ReactNode }) => {
   const [userSession, setUserSession] = useState<any>(null)
 
   const updateSession = async () => {
-    const session = await getUserSession()
-    setUserSession(session)
+    let session = await getUserSession('credentials')
+    if (!session) {
+      session = await getUserSession('google')
+    }
+    setUserSession(session.data)
   }
 
   const handleLogout = async () => {

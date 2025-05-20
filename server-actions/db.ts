@@ -39,18 +39,24 @@ type GetUserFromDBType =
   | { username: string }
   | { phone: string }
 
-export const getUserFromDb = async (obj: GetUserFromDBType) => {
+export const getUserFromDb = async (
+  obj: GetUserFromDBType,
+  options: { password: boolean } = { password: false }
+) => {
   const res = await dbConnect()
   if (!res?.success) return res
 
-  let user = await User.findOne(obj).select('-password')
+  let user
+  if (options.password) {
+    user = await User.findOne(obj)
+  } else {
+    user = await User.findOne(obj).select('-password')
+  }
 
   if (user) return JSON.parse(JSON.stringify(user))
 }
 
 export const createUser = async (data: any) => {
-  console.log('data:', data)
-
   const res = await dbConnect()
   if (!res?.success) {
     console.log('MongoDB connection failed.')
