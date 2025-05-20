@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { IoMdMail } from 'react-icons/io'
@@ -14,10 +15,10 @@ const NavbarOptions = () => {
       <div className='w-[1px] h-3/5 bg-black/30'></div>
 
       <div className='contact-info text-sm font-semibold'>
-        <span className='flex items-center space-x-2'>
+        <Link href={'/contact-us'} className='flex items-center space-x-2'>
           <FaPhoneAlt className='text-primary' />
-          <span>+91-9820098200</span>
-        </span>
+          <span>Request Callback</span>
+        </Link>
 
         <span className='flex items-center space-x-2'>
           <IoMdMail className='text-primary' />

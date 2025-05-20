@@ -29,9 +29,9 @@ const ServicesDropdown = ({ closeDropdown }: { closeDropdown: () => void }) => {
         {SERVICES_DROPDOWN_LINKS.map((item, idx) => (
           <div
             key={item.service.title}
-            className={`cursor-pointer px-4 py-3 flex items-center justify-between hover:bg-primary/10 border-l-4 ${
+            className={`cursor-pointer px-4 py-3 flex items-center justify-between hover:bg-primary/10 border-l-4 text-base ${
               item.service.title === selectedService.service.title
-                ? 'bg-primary/10 border-primary'
+                ? 'bg-primary/10 border-primary text-primary-darken font-medium'
                 : 'border-transparent hover:border-primary'
             } duration-150`}
             onClick={() => setSelectedService(item)}
@@ -44,9 +44,13 @@ const ServicesDropdown = ({ closeDropdown }: { closeDropdown: () => void }) => {
 
       <div className='content p-5 w-[70%] space-y-5'>
         <div>
-          <h2 className='title'>{selectedService.service.title}</h2>
+          <h2 className='title text-2xl text-primary-darken'>
+            {selectedService.service.title}
+          </h2>
 
-          <p className='sub-text'>{selectedService.service.subText}</p>
+          <p className='sub-text text-base'>
+            {selectedService.service.subText}
+          </p>
         </div>
 
         <div className='sub-services grid grid-cols-3 gap-5'>
@@ -54,10 +58,12 @@ const ServicesDropdown = ({ closeDropdown }: { closeDropdown: () => void }) => {
             <Link
               key={subItem.title}
               href={`/services${selectedService.service.href}${subItem.href}`}
-              className='border border-gray-500/30 px-2 py-4 rounded-lg flex space-x-2 hover:border-primary duration-150 hover:bg-primary/5'
+              className='border border-gray-500/30 px-2 py-4 rounded-lg flex space-x-2 hover:border-primary duration-150 hover:shadow-lg'
             >
-              <IoMdCheckmarkCircleOutline className='text-2xl w-fit text-primary' />
-              <span className='text-sm w-full'>{subItem.title}</span>
+              <IoMdCheckmarkCircleOutline className='text-2xl w-fit text-primary-darken' />
+              <span className='w-full font-semibold text-base hover:text-primary-darken'>
+                {subItem.title}
+              </span>
             </Link>
           ))}
         </div>

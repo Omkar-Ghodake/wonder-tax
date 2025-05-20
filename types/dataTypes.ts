@@ -1,3 +1,4 @@
+import Tools from '@/app/tools/page'
 import { ComponentType, ReactElement } from 'react'
 
 export type HomeLanding2DataType = { title: string; desc: string }
@@ -66,6 +67,18 @@ export type ServicesType =
   | 'Payroll & Labor Compliance'
   | 'Financial Planning & Wealth Services'
   | ' Corporate & Secretarial Compliance'
+
+export type ToolsDropdownType = {
+  title: Tools
+  shortDescription: string
+  href: string
+}
+
+export type Tools =
+  | 'Tax Calculator'
+  | 'HRA Calculator'
+  | 'EMI Calculator'
+  | 'SIP Calculator'
 
 export type ServerActionReturn = {
   success: boolean

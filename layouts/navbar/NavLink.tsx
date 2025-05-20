@@ -5,9 +5,25 @@ import Link from 'next/link'
 import { FaAngleDown } from 'react-icons/fa'
 import ServicesDropdown from './ServicesDropdown'
 import { useState } from 'react'
+import ToolsDropdown from './ToolsDropdown'
 
 const NavLink = ({ link }: { link: NavLinkType }) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState<boolean>(false)
+
+  const renderDropdown = () => {
+    if (!link.isDropdown || !isDropDownOpen) return null
+
+    switch (link.dropdownType) {
+      case 'services':
+        return <ServicesDropdown closeDropdown={closeDropdown} />
+
+      case 'tools':
+        return <ToolsDropdown closeDropdown={closeDropdown} />
+
+      default:
+        return null
+    }
+  }
 
   const closeDropdown = () => {
     setIsDropDownOpen(false)
@@ -15,7 +31,7 @@ const NavLink = ({ link }: { link: NavLinkType }) => {
 
   return (
     <>
-      <li className='border-b-[3px] border-transparent hover:border-primary duration-150 cursor-pointer'>
+      <li className='relative border-b-[3px] border-transparent hover:border-primary duration-150 cursor-pointer text-base'>
         {link.isLink ? (
           <Link href={link.href}>{link.label}</Link>
         ) : (
@@ -31,11 +47,16 @@ const NavLink = ({ link }: { link: NavLinkType }) => {
             )}
           </span>
         )}
+        {renderDropdown()}
       </li>
 
-      {link.isDropdown &&
-        link.dropdownType === 'services' &&
-        isDropDownOpen && <ServicesDropdown closeDropdown={closeDropdown} />}
+      {/* {link.dropdownType === 'tools' && (
+        <div className='relative bg-red-500'>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi aliquid
+          eum non cumque iste nisi reprehenderit dicta nobis delectus libero
+          similique, ipsa quo placeat molestias ab autem, provident a in!
+        </div>
+      )} */}
     </>
   )
 }

@@ -1,5 +1,9 @@
 import ServicesDropdown from '@/layouts/navbar/ServicesDropdown'
-import { NavLinkType, ServicesDropdownType } from '@/types/dataTypes'
+import {
+  NavLinkType,
+  ServicesDropdownType,
+  ToolsDropdownType,
+} from '@/types/dataTypes'
 
 export const PRIMARY_NAV_LINKS: NavLinkType[] = [
   {
@@ -23,9 +27,10 @@ export const PRIMARY_NAV_LINKS: NavLinkType[] = [
   },
   {
     label: 'Tools',
-    href: '/tools',
-    isLink: true,
-    isDropdown: false,
+    href: '',
+    isLink: false,
+    isDropdown: true,
+    dropdownType: 'tools',
   },
   {
     label: 'About',
@@ -265,5 +270,29 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType[] = [
         },
       ],
     },
+  },
+]
+
+export const TOOLS_DROPDOWN: ToolsDropdownType[] = [
+  {
+    title: 'Tax Calculator',
+    shortDescription:
+      'Calculate your income tax liability for the current financial year.',
+    href: '/tax-calculator',
+  },
+  {
+    title: 'HRA Calculator',
+    shortDescription: 'Calculate you House Rental Allowance exemption.',
+    href: '/hra-calculator',
+  },
+  {
+    title: 'EMI Calculator',
+    shortDescription: 'Calculate EMI for your loan.',
+    href: '/emi-calculator',
+  },
+  {
+    title: 'SIP Calculator',
+    shortDescription: 'Plan you investments with SIP calculator.',
+    href: '/spi-calculator',
   },
 ]

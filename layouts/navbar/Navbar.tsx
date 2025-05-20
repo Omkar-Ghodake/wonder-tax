@@ -12,7 +12,7 @@ const Navbar = () => {
             <Image
               src={'/navbar-brand.png'}
               alt='WonderTax'
-              width={250}
+              width={220}
               height={50}
               className=''
             />
