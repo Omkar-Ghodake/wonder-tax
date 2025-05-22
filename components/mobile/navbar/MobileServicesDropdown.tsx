@@ -16,7 +16,7 @@ const MobileServicesDropdown = ({
 
   return (
     <div className='mt-2'>
-      <div className='border border-gray-500/20 px-2 py-4 text-sm bg-gray-50 space-y-2'>
+      <div className='border border-gray-500/20 px-2 py-4 text-sm bg-primary/5 space-y-2'>
         {step === 0 &&
           SERVICES_DROPDOWN_LINKS.map((item) => (
             <div
