@@ -81,12 +81,12 @@ export const BENEFITS: HomeBenefitsType[] = [
     icon: '/wc3.png',
   },
   {
-    title: 'Personalized Financial Dashboard',
+    title: 'Financial Dashboard',
     description: 'Access all your financial information in one place.',
     icon: '/wc4.png',
   },
   {
-    title: 'Data Privacy & Confidentiality',
+    title: 'Privacy & Confidentiality',
     description: 'We adhere to strict privacy norms to keep your data secure.',
     icon: '/wc5.png',
   },

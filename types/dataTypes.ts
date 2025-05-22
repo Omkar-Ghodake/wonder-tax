@@ -97,3 +97,30 @@ export type FormErrorType = {
   inputName: string | null
   errorMsg: string | null
 }
+
+export type PlanType = {
+  title: string
+  sellingPrice: number
+  originalPrice?: number
+  features: string[]
+}
+
+export type SubPlansType = {
+  individual: PlanType[]
+  couple: PlanType[]
+}
+
+export type ITRFilingPlansType = {
+  monthly: SubPlansType
+  annual: SubPlansType
+}
+
+export type BusinessReturnFilingPlansType = PlanType[]
+
+export type IncomeTaxNoticesPlansType = PlanType[]
+
+export type TANRegistrationPlansType = PlanType[]
+
+export type TDSReturnsFilingPlansType = PlanType[]
+
+export type FinancialPlanningPlansType = PlanType[]

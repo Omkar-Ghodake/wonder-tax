@@ -10,7 +10,7 @@ import MobileServicesDropdown from './MobileServicesDropdown'
 const MobileNavLink = ({ link }: { link: NavLinkType }) => {
   const pathname = usePathname()
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(true)
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
 
   const closeDropdown = () => {
     setIsDropdownOpen(false)
@@ -26,10 +26,12 @@ const MobileNavLink = ({ link }: { link: NavLinkType }) => {
             {link.isDropdown && (
               <>
                 <span
-                  className='flex items-center'
+                  className={`flex w-fit items-center ${
+                    isDropdownOpen && 'border-b-3 border-primary'
+                  }`}
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 >
-                  <span className=''>{link.label}</span>
+                  <span className={``}>{link.label}</span>
                   <FaAngleDown className='ml-2 translate-y-[2px]' />
                 </span>
                 {link.dropdownType === 'services' && isDropdownOpen && (

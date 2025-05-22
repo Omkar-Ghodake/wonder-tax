@@ -51,7 +51,7 @@ const UserIncomeResources = () => {
         </p>
       </div>
 
-      <div className='w-[60%] space-y-5 shadow-lg p-5 border border-gray-500/10 duration-150'>
+      <div className='w-[60%] space-y-5 shadow-lg p-5 border border-gray-500/10 rounded-lg duration-150'>
         {/* <h3 className='text-xl font-semibold'>Select Your Income Sources</h3> */}
 
         <div className='grid grid-cols-3 grid-rows-2 gap-5 duration-150'>
@@ -83,7 +83,7 @@ const UserIncomeResources = () => {
                   }
                 >
                   <div className='input-group form-16-type'>
-                    <span className='font-semibold'>Form 16 Type</span>
+                    <span className='font-semibold'>Form 16</span>
 
                     <div className='mt-1 space-y-1'>
                       <div className='radio-group flex items-center space-x-2'>

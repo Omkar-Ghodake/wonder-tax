@@ -36,7 +36,7 @@ const MobileServicesDropdown = ({
           (selectedService ? (
             <>
               <span
-                className='flex items-center mb-5 w-fit'
+                className='flex items-center mb-5 w-full text-primary'
                 onClick={() => setStep(0)}
               >
                 <MdChevronLeft className='text-2xl' />
