@@ -10,6 +10,7 @@ import {
   handleGoogleSignIn,
 } from '@/server-actions/userAuth'
 import { checkEmail, checkPassword } from '@/server-actions/utils'
+import { FormErrorType } from '@/types/dataTypes'
 import { useRouter } from 'next/navigation'
 import { FormEvent, HTMLInputTypeAttribute, useEffect, useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
@@ -43,16 +44,13 @@ const page = () => {
     password?: string
   }>({ email: undefined, password: undefined })
 
-  const [showError, setShowError] = useState<{
-    inputName: string | null
-    errorMsg: string | null
-  }>({
+  const [showError, setShowError] = useState<FormErrorType>({
     inputName: null,
     errorMsg: null,
   })
 
   const { userSession, setUserSession } = useSessionProvider()
-  const { loadingState, setLoadingState } = useLoadingProvider()
+  const { setLoadingState } = useLoadingProvider()
   const router = useRouter()
 
   const handleOnSubmit = async (e: FormEvent) => {

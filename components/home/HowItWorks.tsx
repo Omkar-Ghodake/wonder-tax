@@ -4,7 +4,7 @@ import React from 'react'
 
 const HowItWorks = () => {
   return (
-    <div className='h-[80vh] w-full px-32 flex flex-col'>
+    <div className='h-[80vh] w-full px-20 xl:px-32 flex flex-col'>
       <div className='flex h-full items-center justify-center'>
         <div className='grid grid-cols-3 items-center gap-x-10'>
           {HOW_IT_WORKS.map((item, idx) => (

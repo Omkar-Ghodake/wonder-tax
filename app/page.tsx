@@ -2,10 +2,8 @@ import GetStarted from '@/components/home/GetStarted'
 import HowItWorks from '@/components/home/HowItWorks'
 import KeyServices from '@/components/home/KeyServices'
 import Landing from '@/components/home/Landing'
-import Stats from '@/components/home/Stats'
 import Testimonials from '@/components/home/Testimonials'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
-import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -15,7 +13,7 @@ export default function Home() {
           <Landing />
         </div>
 
-        <div>
+        <div className='space-y-10 xl:space-y-0'>
           <h1 className='text-[28px] leading-[40px] font-medium text-center h-[20vh] flex items-end justify-center'>
             Why Choose Wondertax
           </h1>
@@ -31,9 +29,9 @@ export default function Home() {
           <HowItWorks />
         </div>
 
-        <div>
+        {/* <div>
           <KeyServices />
-        </div>
+        </div> */}
 
         {/* <div>
           <h1 className='text-[28px] leading-[40px] font-medium text-center h-[20vh] flex items-end justify-center'>
@@ -44,6 +42,10 @@ export default function Home() {
         </div> */}
 
         <div>
+          <h1 className='text-[28px] leading-[40px] font-medium text-center h-[20vh] flex items-end justify-center mb-10'>
+            Our customers love us
+          </h1>
+
           <Testimonials />
         </div>
 

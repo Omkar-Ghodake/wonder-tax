@@ -1,4 +1,9 @@
-import React, { FormEvent, HTMLInputTypeAttribute, useState } from 'react'
+import React, {
+  ChangeEvent,
+  FormEvent,
+  HTMLInputTypeAttribute,
+  useState,
+} from 'react'
 import { VscEye, VscEyeClosed } from 'react-icons/vsc'
 
 const Input = ({
@@ -11,6 +16,7 @@ const Input = ({
   required = false,
   info,
   showError,
+  textarea = false,
 }: {
   name: string
   label: string
@@ -21,10 +27,17 @@ const Input = ({
   required?: boolean
   info?: string
   showError?: any
+  textarea?: boolean
 }) => {
+  if (type === 'email') {
+    type = 'text'
+  }
+
   const [showPassword, setShowPassword] = useState<boolean>(false)
 
-  const onChange = (e: FormEvent<HTMLInputElement>) => {
+  const onChange = (
+    e: FormEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.currentTarget.name]: e.currentTarget.value })
   }
 
@@ -34,28 +47,50 @@ const Input = ({
         {label}
       </label>
       <div className='relative w-full'>
-        <input
-          name={name}
-          placeholder={placeholder}
-          type={
-            type === 'password' ? (showPassword ? 'text' : 'password') : type
-          }
-          onChange={onChange}
-          className={`border border-[#959595] px-2 py-4 rounded-md w-full outline-primary/40 ${
-            showError?.errorMsg &&
-            showError?.inputName === name &&
-            'border-red-500 outline-red-500'
-          }`}
-          required={required}
-        />
+        {textarea ? (
+          <>
+            <textarea
+              name={name}
+              placeholder={placeholder}
+              onChange={onChange}
+              required={required}
+              className={`border border-[#959595] px-2 py-4 rounded-md w-full outline-primary/40 resize-none min-h-[100px] ${
+                showError?.errorMsg &&
+                showError?.inputName === name &&
+                'border-red-500 outline-red-500'
+              }`}
+            ></textarea>
+          </>
+        ) : (
+          <>
+            <input
+              name={name}
+              placeholder={placeholder}
+              type={
+                type === 'password'
+                  ? showPassword
+                    ? 'text'
+                    : 'password'
+                  : type
+              }
+              onChange={onChange}
+              className={`border border-[#959595] px-2 py-4 rounded-md w-full outline-primary/40 ${
+                showError?.errorMsg &&
+                showError?.inputName === name &&
+                'border-red-500 outline-red-500'
+              }`}
+              required={required}
+            />
 
-        {type === 'password' && (
-          <span
-            className='absolute right-2 top-1/2 -translate-y-1/2 text-lg p-1 duration-150'
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            {showPassword ? <VscEyeClosed /> : <VscEye />}
-          </span>
+            {type === 'password' && (
+              <span
+                className='absolute right-2 top-1/2 -translate-y-1/2 text-lg p-1 duration-150'
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <VscEyeClosed /> : <VscEye />}
+              </span>
+            )}
+          </>
         )}
       </div>
 

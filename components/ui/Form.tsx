@@ -1,19 +1,22 @@
 'use client'
 
 import { FormEvent, FormEventHandler, ReactNode, useRef } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 const Form = ({
   children,
   onSubmit,
-  submitButton = true,
+  submitButton = false,
   submitButtonText = 'Submit',
   registrationSuccessful,
+  className,
 }: {
   children: ReactNode
   onSubmit: FormEventHandler<HTMLFormElement>
   submitButton?: boolean
   submitButtonText?: string
   registrationSuccessful?: boolean
+  className?: string
 }) => {
   const formRef = useRef<HTMLFormElement>(null)
 
@@ -26,7 +29,7 @@ const Form = ({
     <form
       onSubmit={handleFormSubmit}
       ref={formRef}
-      className='flex flex-col space-y-5'
+      className={twMerge('flex flex-col space-y-5', className)}
     >
       {children}
       {submitButton && <button type='submit'>Submit</button>}

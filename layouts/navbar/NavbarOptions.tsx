@@ -15,12 +15,15 @@ const NavbarOptions = () => {
       <div className='w-[1px] h-3/5 bg-black/30'></div>
 
       <div className='contact-info text-sm font-semibold'>
-        <Link href={'/contact-us'} className='flex items-center space-x-2'>
+        <Link
+          href={'/contact-us'}
+          className='flex items-center space-x-2 hover:underline duration-150'
+        >
           <FaPhoneAlt className='text-primary' />
           <span>Request Callback</span>
         </Link>
 
-        <span className='flex items-center space-x-2'>
+        <span className='flex items-center space-x-2 hover:underline duration-150'>
           <IoMdMail className='text-primary' />
           <a href='mailto:support@wondertax.in'>support@wondertax.in</a>
         </span>

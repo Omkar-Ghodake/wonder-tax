@@ -20,17 +20,17 @@ export const PRIMARY_NAV_LINKS: NavLinkType[] = [
     dropdownType: 'services',
   },
   {
-    label: 'Blogs',
-    href: '/blogs',
-    isLink: true,
-    isDropdown: false,
-  },
-  {
     label: 'Tools',
     href: '',
     isLink: false,
     isDropdown: true,
     dropdownType: 'tools',
+  },
+  {
+    label: 'Blogs',
+    href: '/blogs',
+    isLink: true,
+    isDropdown: false,
   },
   {
     label: 'About',
@@ -55,14 +55,14 @@ export const PRIMARY_MOBILE_NAV_LINKS: NavLinkType[] = [
     dropdownType: 'services',
   },
   {
-    label: 'Blogs',
-    href: '/blogs',
+    label: 'Tools',
+    href: '/tools',
     isLink: true,
     isDropdown: false,
   },
   {
-    label: 'Tools',
-    href: '/tools',
+    label: 'Blogs',
+    href: '/blogs',
     isLink: true,
     isDropdown: false,
   },
@@ -84,27 +84,27 @@ export const SERVICES_DROPDOWN_LINKS: ServicesDropdownType[] = [
       subServices: [
         {
           title: 'Income Tax Return Filing (Individuals, HUFs)',
-          href: '/temp',
+          href: '/income-tax-return-filing',
         },
         {
           title: 'Business Return Filing (Firms, Companies)',
-          href: '/temp',
+          href: '/temp2',
         },
         {
           title: 'TDS Return Filing',
-          href: '/temp',
+          href: '/temp3',
         },
         {
           title: 'Property TDS Return - Form 26QB',
-          href: '/temp',
+          href: '/temp4',
         },
         {
           title: 'Income Tax Notices & Response Handling',
-          href: '/temp',
+          href: '/temp5',
         },
         {
           title: 'TAN Registration',
-          href: '/temp',
+          href: '/temp6',
         },
       ],
     },
@@ -281,6 +281,11 @@ export const TOOLS_DROPDOWN: ToolsDropdownType[] = [
     href: '/tax-calculator',
   },
   {
+    title: 'Refund Status',
+    shortDescription: 'Know your current refund status',
+    href: '/user/refund-status',
+  },
+  {
     title: 'HRA Calculator',
     shortDescription: 'Calculate you House Rental Allowance exemption.',
     href: '/hra-calculator',
@@ -294,5 +299,10 @@ export const TOOLS_DROPDOWN: ToolsDropdownType[] = [
     title: 'SIP Calculator',
     shortDescription: 'Plan you investments with SIP calculator.',
     href: '/spi-calculator',
+  },
+  {
+    title: 'Pan Aadhar Linking',
+    shortDescription: 'Know you Pan Aadhar linking status',
+    href: '/user/pan-aadhar-link',
   },
 ]

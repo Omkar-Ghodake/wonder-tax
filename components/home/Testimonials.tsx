@@ -4,7 +4,7 @@ import { ImQuotesLeft } from 'react-icons/im'
 
 const Testimonials = () => {
   return (
-    <div className='w-full px-32 flex flex-col'>
+    <div className='w-full px-20 xl:px-32 flex flex-col'>
       <div className='grid grid-cols-3'>
         {TESTIMONIALS.map((item) => (
           <div key={item.author} className='p-5'>

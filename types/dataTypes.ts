@@ -76,9 +76,11 @@ export type ToolsDropdownType = {
 
 export type Tools =
   | 'Tax Calculator'
+  | 'Refund Status'
   | 'HRA Calculator'
   | 'EMI Calculator'
   | 'SIP Calculator'
+  | 'Pan Aadhar Linking'
 
 export type ServerActionReturn = {
   success: boolean
@@ -89,4 +91,9 @@ export type ServerActionReturn = {
 export type LoadingStateType = {
   loader: 'spinner' | null
   msg: string | null
+}
+
+export type FormErrorType = {
+  inputName: string | null
+  errorMsg: string | null
 }

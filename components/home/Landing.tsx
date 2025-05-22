@@ -7,7 +7,7 @@ import { LuMoveRight } from 'react-icons/lu'
 const Landing = () => {
   return (
     <>
-      <div className='section-1 h-[85vh] w-full flex items-center justify-center px-32'>
+      <div className='section-1 h-[85vh] w-full flex items-center justify-center px-20 xl:px-32'>
         <div className='h-full w-1/2 flex flex-col justify-center'>
           <div className='flex w-11/12 flex-col justify-center space-y-5'>
             <h1 className='text-5xl font-bold'>
@@ -38,9 +38,9 @@ const Landing = () => {
         Ditch the old way of <br /> doing taxes
       </div>
 
-      <div className='section-2 h-[85vh] w-full flex items-center px-32'>
+      <div className='section-2 h-[85vh] w-full flex justify-between items-center px-20 xl:px-32'>
         <div className='h-full w-1/2 flex flex-col justify-center order-2'>
-          <div className='flex w-10/12 flex-col justify-center space-y-5'>
+          <div className='flex xl:w-10/12 flex-col justify-center space-y-5'>
             {LANDING2_DATA.map((item) => (
               <div key={item.title}>
                 <p className='text-[#FF5252] leading-[40px] text-[24px]'>

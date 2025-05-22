@@ -4,11 +4,14 @@ import { NavLinkType } from '@/types/dataTypes'
 import Link from 'next/link'
 import { FaAngleDown } from 'react-icons/fa'
 import ServicesDropdown from './ServicesDropdown'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ToolsDropdown from './ToolsDropdown'
+import { usePathname } from 'next/navigation'
 
 const NavLink = ({ link }: { link: NavLinkType }) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState<boolean>(false)
+
+  const pathname = usePathname()
 
   const renderDropdown = () => {
     if (!link.isDropdown || !isDropDownOpen) return null
@@ -28,6 +31,10 @@ const NavLink = ({ link }: { link: NavLinkType }) => {
   const closeDropdown = () => {
     setIsDropDownOpen(false)
   }
+
+  useEffect(() => {
+    closeDropdown()
+  }, [pathname])
 
   return (
     <>
