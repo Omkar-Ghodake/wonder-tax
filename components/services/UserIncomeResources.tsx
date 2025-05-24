@@ -1,5 +1,6 @@
 'use client'
 
+import { redirect } from 'next/navigation'
 import React, { createElement, ReactElement, useState } from 'react'
 import { FaCircleCheck } from 'react-icons/fa6'
 import { MdOutlineHomeRepairService } from 'react-icons/md'
@@ -37,6 +38,10 @@ const UserIncomeResources = () => {
     } else {
       setSelections([...selections, idx])
     }
+  }
+
+  const handleContinue = () => {
+    redirect(`/services/recommended-plans`)
   }
 
   return (
@@ -220,7 +225,10 @@ const UserIncomeResources = () => {
           ))}
         </div>
         <div className='flex items-center justify-center'>
-          <button className='bg-secondary text-white px-4 py-2 font-semibold rounded-md'>
+          <button
+            className='bg-secondary text-white px-4 py-2 font-semibold rounded-md cursor-pointer'
+            onClick={handleContinue}
+          >
             Continue
           </button>
         </div>

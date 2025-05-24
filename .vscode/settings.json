@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["Wondertax"]
+  "cSpell.words": ["Wondertax"],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

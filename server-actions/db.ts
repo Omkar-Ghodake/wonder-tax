@@ -4,6 +4,7 @@ import User from '@/models/User'
 import { ServerAction } from '@/types/functionTypes'
 import mongoose from 'mongoose'
 
+const DB_NAME = 'WonderTax'
 const MONGODB_URI = process.env.MONGODB_URI
 
 let connectionStatus = 0
@@ -18,7 +19,9 @@ const dbConnect: ServerAction = async () => {
       return { success: true, message: 'Using existing connection.' }
     }
 
-    const conn = await mongoose.connect(MONGODB_URI)
+    const conn = await mongoose.connect(MONGODB_URI, {
+      dbName: DB_NAME,
+    })
 
     if (conn.connections[0].readyState === 2) {
       console.log('Connecting to MongoDB...')
